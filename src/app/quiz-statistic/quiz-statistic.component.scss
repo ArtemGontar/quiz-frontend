@@ -1,0 +1,22 @@
+.statistic-container {
+    display: flex;
+    justify-content: center;
+    .statistic-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 80%;
+        .statistic-title {
+            display: flex;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .statistic-content {
+            display: flex;
+            border: 1px solid black;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+    }
+}

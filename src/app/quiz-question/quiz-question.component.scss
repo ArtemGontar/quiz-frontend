@@ -1,0 +1,22 @@
+.quiz-question-container {
+    display: flex;
+    justify-content: center;
+    .quiz-question-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 80%;
+        .quiz-question-title {
+            display: flex;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .quiz-question-content {
+            display: flex;
+            border: 1px solid black;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+    }
+}

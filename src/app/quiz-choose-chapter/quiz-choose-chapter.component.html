@@ -11,44 +11,12 @@
                 </div>
             </div>
             <div class="choose-chapter-content-table">
-                <div class="choose-chapter-content-table-row">
+                <div class="choose-chapter-content-table-row" [routerLink]="['/quizzes']" routerLinkActive="router-link-active"  *ngFor="let chapter of chapters">
                     <div class="choose-chapter-content-title-row-item">
-                        English Grammar - Past Simple Tense
+                        {{chapter.name}}
                     </div>
                     <div class="choose-chapter-content-title-row-item">
-                        Beginer
-                    </div>
-                </div>
-                <div class="choose-chapter-content-table-row">
-                    <div class="choose-chapter-content-title-row-item">
-                        English Grammar - Past Simple Tense
-                    </div>
-                    <div class="choose-chapter-content-title-row-item">
-                        Beginer
-                    </div>
-                </div>
-                <div class="choose-chapter-content-table-row">
-                    <div class="choose-chapter-content-title-row-item">
-                        English Grammar - Past Simple Tense
-                    </div>
-                    <div class="choose-chapter-content-title-row-item">
-                        Beginer
-                    </div>
-                </div>
-                <div class="choose-chapter-content-table-row">
-                    <div class="choose-chapter-content-title-row-item">
-                        English Grammar - Past Simple Tense
-                    </div>
-                    <div class="choose-chapter-content-title-row-item">
-                        Beginer
-                    </div>
-                </div>
-                <div class="choose-chapter-content-table-row">
-                    <div class="choose-chapter-content-title-row-item">
-                        English Grammar - Past Simple Tense
-                    </div>
-                    <div class="choose-chapter-content-title-row-item">
-                        Beginer
+                        {{chapter.level}}
                     </div>
                 </div>
             </div>

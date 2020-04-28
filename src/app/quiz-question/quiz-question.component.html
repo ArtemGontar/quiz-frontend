@@ -1,8 +1,21 @@
 <div class="quiz-question-container">
     <div class="quiz-question-wrapper">
-        <div class="quiz-question-title">View the quiz-question:</div>
+        <div class="quiz-question-title">Quiz: {{quizName}}</div>
         <div class="quiz-question-content">
-            
+            <div class="quiz-question">
+                <div class="quiz-question-text">{{questions[0].text}}</div>
+                <form class="form">
+                    <div class="quiz-question-options">
+                        <div class="quiz-question-option" *ngFor="let option of questions[0].options; index as i">
+                            <input id="option{{i}}" name="radio" type="radio"/>
+                            <label for="option{{i}}">{{option}}</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="quiz-question-div-button">
+                <button>Next</button>
+            </div>
         </div>
     </div>
 </div>

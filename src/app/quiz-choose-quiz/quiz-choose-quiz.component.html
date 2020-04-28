@@ -11,44 +11,12 @@
                 </div>
             </div>
             <div class="choose-quiz-content-table">
-                <div class="choose-quiz-content-table-row">
+                <div class="choose-quiz-content-table-row" [routerLink]="['/questions']" *ngFor="let quiz of quizzes">
                     <div class="choose-quiz-content-title-row-item">
-                        Past Simple Tense 
+                        {{quiz.name}}
                     </div>
                     <div class="choose-quiz-content-title-row-item">
-                        A0
-                    </div>
-                </div>
-                <div class="choose-quiz-content-table-row">
-                    <div class="choose-quiz-content-title-row-item">
-                        Past Simple Tense 
-                    </div>
-                    <div class="choose-quiz-content-title-row-item">
-                        A0
-                    </div>
-                </div>
-                <div class="choose-quiz-content-table-row">
-                    <div class="choose-quiz-content-title-row-item">
-                        Past Simple Tense 
-                    </div>
-                    <div class="choose-quiz-content-title-row-item">
-                        A0
-                    </div>
-                </div>
-                <div class="choose-quiz-content-table-row">
-                    <div class="choose-quiz-content-title-row-item">
-                        Past Simple Tense 
-                    </div>
-                    <div class="choose-quiz-content-title-row-item">
-                        A0
-                    </div>
-                </div>
-                <div class="choose-quiz-content-table-row">
-                    <div class="choose-quiz-content-title-row-item">
-                        Past Simple Tense 
-                    </div>
-                    <div class="choose-quiz-content-title-row-item">
-                        A0
+                        {{quiz.priority}}
                     </div>
                 </div>
             </div>

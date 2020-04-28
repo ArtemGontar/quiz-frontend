@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizTopBarComponent } from './quiz-top-bar/quiz-top-bar.component';
@@ -21,6 +21,7 @@ import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
     QuizQuestionComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],

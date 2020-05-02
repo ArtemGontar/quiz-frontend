@@ -3,18 +3,19 @@
         <div class="quiz-question-title">Quiz: {{quizName}}</div>
         <div class="quiz-question-content">
             <div class="quiz-question">
-                <div class="quiz-question-text">{{questions[0].text}}</div>
+                <div class="quiz-question-text">{{questions[currentQuestionNumber].text}}</div>
                 <form class="form">
                     <div class="quiz-question-options">
-                        <div class="quiz-question-option" *ngFor="let option of questions[0].options; index as i">
-                            <input id="option{{i}}" name="radio" type="radio"/>
+                        <div class="quiz-question-option" *ngFor="let option of questions[currentQuestionNumber].options; index as i">
+                            <input id="option{{i}}" name="radio" type="radio" value="{{option}}"/>
                             <label for="option{{i}}">{{option}}</label>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="quiz-question-div-button">
-                <button>Next</button>
+                <button [hidden]="isLastQuestion()" (click)="nextQuestion()">Next</button>
+                <button [hidden]="!isLastQuestion()" (click)="postResults()">Finish</button>
             </div>
         </div>
     </div>

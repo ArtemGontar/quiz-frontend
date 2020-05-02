@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="choose-quiz-content-table">
-                <div class="choose-quiz-content-table-row" [routerLink]="['/questions']" *ngFor="let quiz of quizzes">
+                <div class="choose-quiz-content-table-row" [routerLink]="['/quizzes', quiz.id ,'questions']" [queryParams]="{ quizName: quiz.name}" *ngFor="let quiz of quizzes | async">
                     <div class="choose-quiz-content-title-row-item">
                         {{quiz.name}}
                     </div>

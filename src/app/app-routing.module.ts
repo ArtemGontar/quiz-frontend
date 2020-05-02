@@ -5,13 +5,14 @@ import { QuizChooseChapterComponent } from './quiz-choose-chapter/quiz-choose-ch
 import { QuizStatisticComponent } from './quiz-statistic/quiz-statistic.component';
 import { QuizChooseQuizComponent } from './quiz-choose-quiz/quiz-choose-quiz.component';
 import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
-
+import { QuizUserListComponent } from './quiz-user-list/quiz-user-list.component';
 
 const routes: Routes = [
-  { path: 'user-profile', component: QuizUserProfileComponent},
+  { path: 'users', component: QuizUserListComponent},
+  { path: 'users/:userId', component: QuizUserProfileComponent},
   { path: 'chapters', component: QuizChooseChapterComponent},
-  { path: 'quizzes', component: QuizChooseQuizComponent},
-  { path: 'questions', component: QuizQuestionComponent},
+  { path: 'chapters/:chapterId/quizzes', component: QuizChooseQuizComponent},
+  { path: 'quizzes/:quizId/questions', component: QuizQuestionComponent},
   { path: 'statistics', component: QuizStatisticComponent},
 ];
 

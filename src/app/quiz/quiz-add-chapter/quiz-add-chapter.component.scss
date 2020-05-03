@@ -1,0 +1,71 @@
+.add-chapter-container {
+    display: flex;
+    justify-content: center;
+    .add-chapter-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 80%;
+        .add-chapter-title {
+            display: flex;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .add-chapter-content {
+            display: flex;
+            border: 1px solid #C7BCBC;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px; 
+
+            .add-chapter-content-inputs {
+                font-style: italic;
+                margin: 10px;
+                height: 150px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: space-between;
+                justify-content: space-between;
+                .add-chapter-div-buttons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    .add-chapter-div-button{
+                        display: flex;
+                        margin-right: 20px;
+                        & button {
+                            background: #FEC600;
+                            height: 40px;
+                            padding: 10px;
+                            border-radius: 5px;
+                            border: 0;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                            &:active {
+                                background: #FEC200;
+                            }
+                        }
+                    }
+                    .add-chapter-div-button.last{
+                        margin: 0;
+                    }
+                }
+                .add-chapter-div-input {
+                    width: 45%;
+                    display: flex;
+                    flex-direction: column;
+                    & input{
+                        border-radius: 5px;
+                        height: 30px;
+                        border: 1px solid black;
+                    }
+                    
+                }
+            }
+
+            
+        }
+    }
+}

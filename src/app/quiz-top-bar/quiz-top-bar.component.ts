@@ -1,15 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-quiz-top-bar',
   templateUrl: './quiz-top-bar.component.html',
   styleUrls: ['./quiz-top-bar.component.scss']
 })
-export class QuizTopBarComponent implements OnInit {
+export class QuizTopBarComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  name: string;
+  isAuthenticated: boolean;
+  statusSubscription: Subscription;
+  nameSubscription: Subscription;
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.statusSubscription = this.authService.authNavStatus$
+      .subscribe(status => {
+        this.isAuthenticated = status;
+        
+      });
+    this.nameSubscription = this.authService.authNavName$
+    .subscribe(name => {
+      this.name = name;
+      console.log(name);
+    });
+      
+  } 
+
+  async login() {
+    await this.authService.login();
   }
 
+  register() {
+    console.log(this.isAuthenticated);
+  }
+
+  async signout() {
+    await this.authService.signout();     
+  }
+
+  ngOnDestroy() {
+    this.nameSubscription.unsubscribe();
+    this.statusSubscription.unsubscribe();
+  }
 }

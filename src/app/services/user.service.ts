@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../models/environment';
+import { Observable } from 'rxjs';
+import { UserProfile } from '../models/userProfile';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,6 @@ export class UserService {
   }
 
   putUserById(userId ,user){
-    this.http.put(this.URL + `api/users/${userId}`, user)
+    this.http.put(this.URL + `api/users/${userId}`, user).subscribe(x => console.log(x))
   }
 }

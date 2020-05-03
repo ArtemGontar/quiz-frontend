@@ -1,0 +1,79 @@
+.choose-quiz-container {
+    display: flex;
+    justify-content: center;
+    .choose-quiz-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 80%;
+        .choose-quiz-title {
+            display: flex;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .choose-quiz-content {
+            display: flex;
+            border: 1px solid #C7BCBC;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            
+            .choose-quiz-content-title {
+                width: 90%;
+                margin: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-weight: bold;
+                padding: 0 20px;
+            } 
+            .choose-quiz-content-table {
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+                .choose-quiz-content-table-row{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    &:hover {
+                        cursor: pointer;
+                        color: #FEC600;
+                    }
+                    .choose-quiz-content-table-wrapper {
+                        width: 90%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        border: 1px solid black;
+                        padding: 20px;
+                        
+                    }
+                }
+                
+                .choose-quiz-content-table-item-delete {
+                    cursor: pointer;
+                }
+                
+            }
+            .choose-quiz-div-button {
+                margin: 10px;
+                display: flex;
+                align-self: flex-end;
+                & button {
+                    background: #FEC600;
+                    height: 40px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: 0;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &:active {
+                        background: #FEC200;
+                    }
+                }
+            }
+        }
+    }
+}

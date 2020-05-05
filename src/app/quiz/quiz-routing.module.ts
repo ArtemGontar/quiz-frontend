@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: 'chapters/:chapterId/quizzes', component: QuizChooseQuizComponent},
     { path: 'quizzes/:quizId/questions', component: QuizQuestionComponent},
     { path: 'add-chapter', component: QuizAddChapterComponent},
-    { path: 'add-quiz', component: QuizAddQuizComponent},
+    { path: 'chapters/:chapterId/add-quiz', component: QuizAddQuizComponent},
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ export class QuizService {
   }
 
   addChapter(chapter) {
-    this.http.post(this.URL + 'api/chapters', chapter);
+    this.http.post(this.URL + 'api/chapters', chapter).subscribe(x => x);
   }
 
   deleteChapter(chapterId) {
@@ -32,7 +32,7 @@ export class QuizService {
   }
 
   addQuiz(quiz) {
-    this.http.post(this.URL + 'api/quizzes', quiz);
+    this.http.post(this.URL + 'api/quizzes', quiz).subscribe(x => x);
   }
 
   deleteQuiz(quizId) {

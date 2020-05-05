@@ -1,18 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
+import { QuizService } from '../../services/quiz.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-quiz-add-quiz',
   templateUrl: './quiz-add-quiz.component.html',
   styleUrls: ['./quiz-add-quiz.component.scss']
 })
 export class QuizAddQuizComponent implements OnInit {
-  
+  chapterId;
   quizForm = this.fb.group({
-    name: ['', Validators.required],
+    title: ['', Validators.required],
     priority: [''],
+    chapterId: [this.chapterId],
     questions: this.fb.array([this.getQuestions()])
   });
-  constructor(private fb: FormBuilder) { }
+  constructor(private route: ActivatedRoute,
+    private quizService: QuizService, 
+    private fb: FormBuilder) { 
+      this.route.params.subscribe(x => {
+        this.quizForm.patchValue({chapterId: x.chapterId});
+      });
+    }
 
   ngOnInit() {
   }
@@ -38,7 +47,7 @@ export class QuizAddQuizComponent implements OnInit {
 
   getOptions(): any {
     return this.fb.group({
-      name: ['']
+      value: ['']
     });
   }
 
@@ -48,7 +57,7 @@ export class QuizAddQuizComponent implements OnInit {
 
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
+    this.quizService.addQuiz(this.quizForm.value);
     console.warn(this.quizForm.value);
   }
 }

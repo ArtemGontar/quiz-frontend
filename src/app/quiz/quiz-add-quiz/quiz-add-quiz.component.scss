@@ -1,0 +1,138 @@
+.add-quiz-container {
+    display: flex;
+    justify-content: center;
+    .add-quiz-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 80%;
+        .add-quiz-title {
+            display: flex;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .add-quiz-content {
+            display: flex;
+            border: 1px solid #C7BCBC;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px; 
+            .add-quiz-content-inputs {
+                font-style: italic;
+                margin: 10px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: space-between;
+                justify-content: space-between;
+                .add-chapter-div-buttons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    .add-chapter-div-button{
+                        display: flex;
+                        margin-right: 20px;
+                        & button {
+                            background: #FEC600;
+                            height: 40px;
+                            padding: 10px;
+                            border-radius: 5px;
+                            border: 0;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                            &:active {
+                                background: #FEC200;
+                            }
+                        }
+                    }
+                    .add-chapter-div-button.last{
+                        margin: 0;
+                    }
+                }
+                .add-quiz-content-inputs-quiz-group{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    .add-quiz-div-input {
+                        width: 45%;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+                .add-quiz-div-input-question-group {
+                    width: 100%;
+                    justify-content: space-between;
+                    padding: 20px;
+                    display: flex;
+                    align-self: center;
+                    flex-direction: column;
+                    .input-question-group-item{
+                        display: flex;
+                        .input-question-group-item-wrapper{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            border: 1px solid #C7BCBC;
+                            .input-option-group-item-wrapper {
+                                display: flex;
+                                width: 100%;
+                                flex-direction: column;
+                            }
+                            .add-quiz-div-input {
+                                width: 80%;
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            .input-question-title{
+                                display: flex;
+                            }
+                            .input-option-group-item{
+                                display: flex;
+                                align-self: center;
+                                justify-content: center;
+                                width: 80%;
+                                .input-option-name{
+                                    display: flex;
+                                }
+                                .add-quiz-div-input {
+                                    width: 50%;
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                }
+            } 
+
+            .add-quiz-div-button {
+                margin: 10px;
+                display: flex;
+                align-self: flex-end;
+                & button {
+                    background: #FEC600;
+                    height: 40px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: 0;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &:active {
+                        background: #FEC200;
+                    }
+                }
+            }
+            & input{
+                border-radius: 5px;
+                height: 30px;
+                border: 1px solid black;
+            }
+        }
+    }
+}

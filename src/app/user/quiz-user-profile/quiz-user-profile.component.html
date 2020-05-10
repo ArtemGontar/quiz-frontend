@@ -1,0 +1,49 @@
+<div class="user-profile-container">
+    <div class="user-profile-wrapper">
+        <div class="user-profile-title">User Profile</div>
+        <div class="user-profile-content">
+            <div class="user-profile-content-inputs">
+                <div class="user-profile-div-input">
+                    <label>First Name</label>
+                    <input type="text" [(ngModel)]="userProfile.firstName"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>Last Name</label>
+                    <input type="text" [(ngModel)]="userProfile.lastName"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>E-mail</label>
+                    <input type="text" [(ngModel)]="userProfile.email"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>Phone Number</label>
+                    <input type="text" [(ngModel)]="userProfile.phoneNumber"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>English level</label>
+                    <input type="text" [(ngModel)]="userProfile.englishLevel"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>Birth Date</label>
+                    <input type="text" [(ngModel)]="userProfile.birthDate"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>Departament</label>
+                    <input type="text" [(ngModel)]="userProfile.departament"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>Job Title</label>
+                    <input type="text" [(ngModel)]="userProfile.jobTitle"/>
+                </div>
+                <div class="user-profile-div-input">
+                    <label>System role</label>
+                    <input type="text" [(ngModel)]="userProfile.systemRole"/>
+                </div>
+            </div>
+            
+            <div class="user-profile-div-button">
+                <button (click)="saveUser()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

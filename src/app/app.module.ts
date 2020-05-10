@@ -1,29 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizTopBarComponent } from './quiz-top-bar/quiz-top-bar.component';
-import { QuizUserProfileComponent } from './quiz-user-profile/quiz-user-profile.component';
-import { QuizChooseChapterComponent } from './quiz-choose-chapter/quiz-choose-chapter.component';
-import { QuizChooseQuizComponent } from './quiz-choose-quiz/quiz-choose-quiz.component';
-import { QuizStatisticComponent } from './quiz-statistic/quiz-statistic.component';
-import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
+import { QuizModule } from './quiz/quiz.module';
+import { UserModule } from './user/user.module';
+import { StatisticModule } from './statistic/statistic.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     QuizTopBarComponent,
-    QuizUserProfileComponent,
-    QuizChooseChapterComponent,
-    QuizChooseQuizComponent,
-    QuizStatisticComponent,
-    QuizQuestionComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule,
+    QuizModule,
+    UserModule,
+    StatisticModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

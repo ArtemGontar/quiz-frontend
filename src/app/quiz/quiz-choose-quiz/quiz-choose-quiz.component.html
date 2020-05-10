@@ -1,0 +1,33 @@
+<div class="choose-quiz-container">
+    <div class="choose-quiz-wrapper">
+        <div class="choose-quiz-title">Choose the quizzes:</div>
+        <div class="choose-quiz-content">
+            <div class="choose-quiz-content-title">
+                <div class="choose-quiz-content-title-row">
+                    Name
+                </div>
+                <div class="choose-quiz-content-title-row">
+                    Priority
+                </div>
+            </div>
+            <div class="choose-quiz-content-table">
+                <div class="choose-quiz-content-table-row" [routerLink]="['/quizzes', quiz.id ,'questions']" [queryParams]="{ quizName: quiz.name }" *ngFor="let quiz of quizzes | async">
+                    <div class="choose-quiz-content-table-wrapper">
+                        <div class="choose-quiz-content-table-row-item">
+                            {{quiz.name}}
+                        </div>
+                        <div class="choose-quiz-content-table-row-item">
+                            {{quiz.priority}}
+                        </div>
+                    </div>
+                    <div class="choose-quiz-content-table-item-delete" (click)="deleteQuiz(quiz.id)">
+                        <img src="../../../assets/img/trash.svg" width="25px" height="25px">
+                    </div>
+                </div>
+            </div>
+            <div class="choose-quiz-div-button">
+                <button  [routerLink]="['/chapters', chapterId ,'add-quiz']" routerLinkActive="router-link-active">Add quiz</button>
+            </div>
+        </div>
+    </div>
+</div>

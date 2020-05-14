@@ -6,3 +6,9 @@ export enum EnglishLevel{
     Intermediate = "Intermediate",
     UpperIntermediate = "UpperIntermediate"
 }
+
+export enum Priority{
+    Low = "Low",
+    Medium = "Medium",
+    High = "High"
+}

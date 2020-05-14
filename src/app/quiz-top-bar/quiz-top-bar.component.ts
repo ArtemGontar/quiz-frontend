@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class QuizTopBarComponent implements OnInit, OnDestroy {
 
   name: string;
+  userId: string;
   isAuthenticated: boolean;
   statusSubscription: Subscription;
   nameSubscription: Subscription;
@@ -24,9 +25,14 @@ export class QuizTopBarComponent implements OnInit, OnDestroy {
     this.nameSubscription = this.authService.authNavName$
     .subscribe(name => {
       this.name = name;
-      console.log(name);
     });
-      
+
+    this.nameSubscription = this.authService.authNavId$
+    .subscribe(id => {
+      this.userId = id;
+    });
+
+    this.authService.loadPermissions([this.authService.role]);
   } 
 
   async login() {

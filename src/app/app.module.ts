@@ -4,12 +4,15 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizTopBarComponent } from './quiz-top-bar/quiz-top-bar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
-import { QuizModule } from './quiz/quiz.module';
-import { UserModule } from './user/user.module';
-import { StatisticModule } from './statistic/statistic.module';
-
+import { AdminModule } from './admin/admin.module';
+import { ModeratorModule } from './moderator/moderator.module';
+import { ClientModule } from './client/client.module';
+import { ManagerModule } from './manager/manager.module';
+import { StatisticModule } from './client/statistic/statistic.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { TokenInterceptor } from 'src/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,21 @@ import { StatisticModule } from './statistic/statistic.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    QuizModule,
-    UserModule,
-    StatisticModule,
+    AdminModule,
+    ModeratorModule,
+    ClientModule,
+    ManagerModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxPermissionsModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

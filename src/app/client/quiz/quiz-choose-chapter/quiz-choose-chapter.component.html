@@ -1,0 +1,27 @@
+<div class="choose-chapter-container">
+    <div class="choose-chapter-wrapper">
+        <div class="choose-chapter-title">Choose the chapter:</div>
+        <div class="choose-chapter-content">
+            <div class="choose-chapter-content-title">
+                <div class="choose-chapter-content-title-row">
+                    Name
+                </div>
+                <div class="choose-chapter-content-title-row">
+                    Level
+                </div>
+            </div>
+            <div class="choose-chapter-content-table">
+                <div class="choose-chapter-content-table-row" [routerLink]="[chapter.id, 'quizzes']" routerLinkActive="router-link-active"  *ngFor="let chapter of chapters | async">
+                    <div class="choose-chapter-content-table-wrapper">
+                        <div class="choose-chapter-content-table-row-item">
+                            {{chapter.name}}
+                        </div>
+                        <div class="choose-chapter-content-table-row-item">
+                            {{chapter.level}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

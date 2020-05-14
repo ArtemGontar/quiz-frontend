@@ -1,0 +1,27 @@
+<div class="add-chapter-container">
+    <div class="add-chapter-wrapper">
+        <div class="add-chapter-title">Add the chapter</div>
+        <div class="add-chapter-content">
+            <form class="add-chapter-content-inputs" [formGroup]="chapterForm" (ngSubmit)="onSubmit()">
+                <div class="add-chapter-div-input">
+                    <label>Chapter Name</label>
+                    <input type="text" formControlName="name"/>
+                </div>
+                <div class="add-chapter-div-input">
+                    <label>Chapter Level</label>
+                    <input type="text" formControlName="level"/>
+                </div>
+                <div class="add-chapter-div-buttons">
+                    <div class="add-chapter-div-button">
+                        <button [routerLink]="['/chapters']" routerLinkActive="router-link-active" >Return back</button>
+                    </div>
+                    <div class="add-chapter-div-button last">
+                        <button type="submit" [disabled]="!chapterForm.valid">Save changes</button>
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+    </div>
+</div>

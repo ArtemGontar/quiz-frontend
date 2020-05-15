@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreComponent } from './core.component';
 import { CoreRoutingModule } from './core.routing';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,10 @@ import { CoreRoutingModule } from './core.routing';
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    EffectsModule.forFeature([
+      //AuthEffects,
+    ])
   ],
   exports: [
     CoreComponent

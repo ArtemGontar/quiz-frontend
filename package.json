@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+    "@ngrx/effects": "^9.1.2",
+    "@ngrx/store": "^9.1.2",
     "ngx-permissions": "^7.0.3",
     "oidc-client": "^1.10.1",
     "rxjs": "~6.4.0",

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CoreComponent } from './modules/core/core.component';
+import { AuthGuard } from './utils/guards/auth.guard';
+import { AuthCallbackComponent } from './auth/auth-callback/auth-callback.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthGuard]},
   {
     path: 'dashboard',
     component: CoreComponent,
@@ -33,7 +35,9 @@ const routes: Routes = [
         //canLoad: [RoleGuard]
       },
       { path: '**', redirectTo: 'dashboard' },
-    ]
+      { path: '', component: AuthCallbackComponent}
+    ], 
+    canActivate: [AuthGuard]
   },
 ];
 

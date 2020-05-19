@@ -10,7 +10,7 @@ import { ModeratorModule } from './modules/moderator/moderator.module';
 import { ClientModule } from './modules/client/client.module';
 import { ManagerModule } from './modules/manager/manager.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { TokenInterceptor } from 'src/api.interceptor';
+import { TokenInterceptor } from '../../src/api.interceptor';
 import { CoreComponent } from './modules/core/core.component';
 import { CoreModule } from './modules/core/core.module';
 

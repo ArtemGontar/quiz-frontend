@@ -16,7 +16,6 @@ export class AuthCallbackComponent implements OnInit {
     private route: ActivatedRoute) {}
 
   async ngOnInit() {
- 
     // check for error
     if (this.route.snapshot.fragment.indexOf('error') >= 0) {
        this.error=true; 
@@ -24,6 +23,6 @@ export class AuthCallbackComponent implements OnInit {
      }
     
     await this.authService.completeAuthentication();      
-    this.router.navigate(['/chapters']);    
+    this.router.navigate(['/dashboard']);    
   }
 }

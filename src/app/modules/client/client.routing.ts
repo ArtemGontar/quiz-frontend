@@ -8,6 +8,7 @@ import { QuizCongratsComponent } from './statistic/quiz-congrats/quiz-congrats.c
 import { QuizStatisticComponent } from './statistic/quiz-statistic/quiz-statistic.component';
 
 const routes: Routes = [
+    { path: '', redirectTo: 'client'},
     { path: 'chapters', component: QuizChooseChapterComponent},
     { path: 'chapters/:chapterId/quizzes', component: QuizChooseQuizComponent},
     { path: 'quizzes/:quizId/questions', component: QuizQuestionComponent},

@@ -5,7 +5,7 @@ import { AuthGuard } from './utils/guards/auth.guard';
 import { AuthCallbackComponent } from './auth/auth-callback/auth-callback.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {
     path: 'dashboard',
     component: CoreComponent,
@@ -35,9 +35,9 @@ const routes: Routes = [
         //canLoad: [RoleGuard]
       },
       { path: '**', redirectTo: 'dashboard' },
-      { path: '', component: AuthCallbackComponent}
+      { path: 'auth-callback', component: AuthCallbackComponent },
     ], 
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
 ];
 

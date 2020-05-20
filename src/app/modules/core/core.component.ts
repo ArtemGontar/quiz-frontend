@@ -45,9 +45,15 @@ export class CoreComponent implements OnInit {
   this.authService.loadPermissions([this.authService.role]);
   }
 
+  navigateTo(route: string): void {
+      console.log(this.activatedRoute)
+    this.router.navigate(
+      [`${this.role[0].toLowerCase()}/${route}`],
+      { relativeTo:  this.activatedRoute }
+    );
+  }
 
   private initListeners(): void {
-
     this.activatedRoute.url
       .pipe(
         filter(() => !this.activatedRoute.children.length),

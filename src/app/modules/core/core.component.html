@@ -20,11 +20,11 @@
         </svg>
     </div>
     <div class="top-bar-wrapper" *ngIf="isAuthenticated">
-        <div *ngxPermissionsOnly="['Admin', 'Moderator', 'Client']" class="top-bar-item align-left" [routerLink]="['chapters']">Go to Chapters</div>
-        <div *ngxPermissionsOnly="['Admin', 'Moderator']" class="top-bar-item align-left" [routerLink]="['users']">Go to User list</div>
-        <div *ngxPermissionsOnly="['Manager', 'Client']" class="top-bar-item align-left" [routerLink]="['user-statistics']">Go to Statistic</div>
+        <div *ngxPermissionsOnly="['Admin', 'Moderator', 'Client']" class="top-bar-item align-left" (click)="navigateTo('chapters')">Go to Chapters</div>
+        <div *ngxPermissionsOnly="['Admin', 'Moderator']" class="top-bar-item align-left" (click)="navigateTo('users')">Go to User list</div>
+        <div *ngxPermissionsOnly="['Manager', 'Client']" class="top-bar-item align-left" (click)="navigateTo('user-statistics')">Go to Statistic</div>
         
-        <div [routerLink]="['users', userId]" routerLinkActive="router-link-active" class="top-bar-item align-right push-to-right">
+        <div (click)="navigateTo('users/' + userId)" class="top-bar-item align-right push-to-right">
             {{name}}
         </div>
         <div class="top-bar-item align-right" >            

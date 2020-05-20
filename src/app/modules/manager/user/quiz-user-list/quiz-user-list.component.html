@@ -1,0 +1,37 @@
+<div class="user-list-container">
+    <div class="user-list-wrapper">
+        <div class="user-list-title">User List</div>
+        <div class="user-list-content">
+            <div class="user-list-content-title">
+                <div class="user-list-content-title-row">
+                    Name
+                </div>
+                <div class="user-list-content-title-row">
+                    E-mail
+                </div>
+                <div class="user-list-content-title-row">
+                    Phone Number
+                </div>
+                <div class="user-list-content-title-row">
+                    English Level
+                </div>
+            </div>
+            <div class="user-list-content-table">
+                <div class="user-list-content-table-row" [routerLink]="[user.id]" routerLinkActive="router-link-active"  *ngFor="let user of users | async">
+                    <div class="user-list-content-title-row-item">
+                        {{user.firstName}}  {{user.lastName}}
+                    </div>
+                    <div class="user-list-content-title-row-item">
+                        {{user.email}}
+                    </div>
+                    <div class="user-list-content-title-row-item">
+                        {{user.phoneNumber}}
+                    </div>
+                    <div class="user-list-content-title-row-item">
+                        {{user.englishLevel}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

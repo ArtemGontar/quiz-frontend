@@ -15,7 +15,7 @@ export class QuizChooseChapterComponent implements OnInit {
   constructor(private authService: AuthService, private quizService: QuizService) { }
   
   ngOnInit() {
-    this.chapters = this.quizService.getChapters();
+    this.chapters = this.quizService.getChaptersByOwner();
     this.authService.loadPermissions([this.authService.role]);
   }
 

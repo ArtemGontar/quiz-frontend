@@ -27,8 +27,11 @@ export class QuizUserProfileComponent implements OnInit {
   }
 
   saveUser(){
-    console.log(this.userProfile);
     this.userService.putUserById(this.userId, this.userProfile);
+  }
+
+  disableUser(){
+    this.userService.disableUserById(this.userId);
   }
 
 }

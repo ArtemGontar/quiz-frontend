@@ -27,4 +27,8 @@ export class UserService {
   putUserById(userId ,user){
     this.http.put(this.URL + `api/users/${userId}`, user).subscribe(x => console.log(x))
   }
+
+  disableUserById(userId) {
+    this.http.post(this.URL + `api/users/${userId}/disable`, null).subscribe(x => console.log(x))
+  }
 }

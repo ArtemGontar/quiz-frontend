@@ -20,7 +20,7 @@ export class QuizAddChapterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.quizService.addChapter(this.chapterForm.value)
-    console.warn(this.chapterForm.value);
+    debugger;
+    this.quizService.addChapter(this.chapterForm.value);
   }
 }

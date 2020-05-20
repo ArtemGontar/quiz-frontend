@@ -18,6 +18,10 @@ export class QuizService {
     return this.http.get(this.URL + 'api/chapters');
   }
 
+  getChaptersByOwner() {
+    return this.http.get(this.URL + 'api/chapters/byOwner');
+  }
+
   addChapter(chapter) {
     this.http.post(this.URL + 'api/chapters', chapter).subscribe(x => x);
   }

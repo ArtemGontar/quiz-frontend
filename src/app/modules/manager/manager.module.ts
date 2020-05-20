@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuizStatisticComponent } from './statistic/quiz-statistic/quiz-statistic.component';
-import { QuizCongratsComponent } from './statistic/quiz-congrats/quiz-congrats.component';
+import { QuizUserListComponent } from './user/quiz-user-list/quiz-user-list.component';
 import { ManagerRoutingModule } from './manager.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPermissionsModule } from 'ngx-permissions';
@@ -10,7 +10,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 @NgModule({
   declarations: [
     QuizStatisticComponent,
-    QuizCongratsComponent
+    QuizUserListComponent
   ],
   imports: [
     CommonModule,

@@ -53,6 +53,16 @@ export class CoreComponent implements OnInit {
     );
   }
 
+  async signout() {
+    await this.authService.signout();     
+  }
+
+  ngOnDestroy() {
+    this.nameSubscription.unsubscribe();
+    this.statusSubscription.unsubscribe();
+    this.userIdSubscription.unsubscribe();
+  }
+
   private initListeners(): void {
     this.activatedRoute.url
       .pipe(

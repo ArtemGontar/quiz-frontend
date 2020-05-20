@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { TokenInterceptor } from '../../src/api.interceptor';
+import { TokenInterceptor } from './interseptors/token.interceptor';
 import { CoreModule } from './modules/core/core.module';
 
 @NgModule({

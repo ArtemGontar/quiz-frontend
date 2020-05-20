@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { QuizStatisticComponent } from './statistic/quiz-statistic/quiz-statistic.component';
 import { QuizCongratsComponent } from './statistic/quiz-congrats/quiz-congrats.component';
 import { ManagerRoutingModule } from './manager.routing';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPermissionsModule } from 'ngx-permissions';
-
 
 
 @NgModule({
@@ -17,7 +15,6 @@ import { NgxPermissionsModule } from 'ngx-permissions';
   imports: [
     CommonModule,
     ManagerRoutingModule,
-    HttpClientModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

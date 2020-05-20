@@ -9,7 +9,6 @@ import { QuizAddQuizComponent } from './quiz/quiz-add-quiz/quiz-add-quiz.compone
 import { QuizAddChapterComponent } from './quiz/quiz-add-chapter/quiz-add-chapter.component';
 import { AdminRoutingModule } from './admin.routing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
@@ -20,13 +19,12 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     QuizAddQuizComponent,
     QuizAddChapterComponent,
     QuizUserProfileComponent,
-    QuizUserListComponent,
+    QuizUserListComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

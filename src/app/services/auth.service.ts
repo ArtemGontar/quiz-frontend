@@ -10,11 +10,10 @@ import { NgxPermissionsService } from 'ngx-permissions';
 })
 export class AuthService {
 
-  // Observable navItem source
   private _authNavStatusSource = new BehaviorSubject<boolean>(false);
   private _authNavNameSource = new BehaviorSubject<string>("");
   private _authNavIdSource = new BehaviorSubject<string>("");
-  // Observable navItem stream
+
   authNavStatus$ = this._authNavStatusSource.asObservable();
   authNavName$ = this._authNavNameSource.asObservable();
   authNavId$ = this._authNavIdSource.asObservable();
@@ -24,14 +23,17 @@ export class AuthService {
   constructor(private http: HttpClient, private permissionsService: NgxPermissionsService) { 
     //super();     
     
-    this.manager.getUser().then(user => { 
+    this.initUser();
+  }
+
+  initUser(){
+    this.manager.getUser().then(user => {
       this.user = user;
       this._authNavStatusSource.next(this.isAuthenticated());
       this._authNavNameSource.next(this.user.profile.name);
       this._authNavIdSource.next(this.user.profile.sub);
     });
   }
-
   async login() { 
     return await this.manager.signinRedirect();
   }

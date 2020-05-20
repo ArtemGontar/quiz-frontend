@@ -22,7 +22,7 @@ export class AuthCallbackComponent implements OnInit {
        return;    
      }
     
-    await this.authService.completeAuthentication();      
+    await this.authService.completeAuthentication();
     this.router.navigate(['/dashboard']);    
   }
 }

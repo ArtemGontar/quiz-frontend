@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { QuizChooseChapterComponent } from './quiz/quiz-choose-chapter/quiz-choose-chapter.component';
 import { QuizChooseQuizComponent } from './quiz/quiz-choose-quiz/quiz-choose-quiz.component';
@@ -18,13 +17,12 @@ import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-pro
     QuizQuestionComponent,
     QuizUserProfileComponent,
     QuizStatisticComponent,
-    QuizCongratsComponent
+    QuizCongratsComponent,
   ],
   imports: [
     CommonModule,
     ClientRoutingModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

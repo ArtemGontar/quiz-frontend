@@ -37,7 +37,7 @@ const routes: Routes = [
       { path: '**', redirectTo: 'dashboard' },
       { path: 'auth-callback', component: AuthCallbackComponent },
     ], 
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
 ];
 

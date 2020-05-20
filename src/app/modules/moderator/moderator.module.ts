@@ -7,7 +7,6 @@ import { QuizAddQuizComponent } from './quiz/quiz-add-quiz/quiz-add-quiz.compone
 import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.component';
 import { QuizChooseQuizComponent } from './quiz/quiz-choose-quiz/quiz-choose-quiz.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { ModeratorRoutingModule } from './moderator.routing';
 import { QuizChooseChapterComponent } from './quiz/quiz-choose-chapter/quiz-choose-chapter.component';
@@ -20,13 +19,12 @@ import { QuizChooseChapterComponent } from './quiz/quiz-choose-chapter/quiz-choo
     QuizAddQuizComponent,
     QuizAddChapterComponent,
     QuizUserProfileComponent,
-    QuizUserListComponent,
+    QuizUserListComponent
   ],
   imports: [
     CommonModule,
     ModeratorRoutingModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

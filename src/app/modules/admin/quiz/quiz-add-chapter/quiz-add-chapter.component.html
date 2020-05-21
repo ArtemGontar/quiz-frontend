@@ -13,7 +13,7 @@
                 </div>
                 <div class="add-chapter-div-buttons">
                     <div class="add-chapter-div-button">
-                        <button [routerLink]="['/chapters']" routerLinkActive="router-link-active" >Return back</button>
+                        <button (click)="returnBackClick()" >Return back</button>
                     </div>
                     <div class="add-chapter-div-button last">
                         <button type="submit" [disabled]="!chapterForm.valid">Save changes</button>

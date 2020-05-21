@@ -20,7 +20,6 @@ export class QuizChooseChapterComponent implements OnInit {
   }
 
   deleteChapter(chapterId){
-    console.log("delete chapter " + chapterId);
-    //this.quizService.deleteChapter(chapterId);
+    this.quizService.deleteChapter(chapterId);
   }
 }

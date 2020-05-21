@@ -9,6 +9,7 @@ import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.compon
 import { QuizStatisticComponent } from './statistic/quiz-statistic/quiz-statistic.component';
 import { QuizCongratsComponent } from './statistic/quiz-congrats/quiz-congrats.component';
 import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-profile.component';
+import { UserStatisticComponent } from './statistic/user-statistic/user-statistic.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-pro
     QuizQuestionComponent,
     QuizUserProfileComponent,
     QuizStatisticComponent,
+    UserStatisticComponent,
     QuizCongratsComponent,
   ],
   imports: [

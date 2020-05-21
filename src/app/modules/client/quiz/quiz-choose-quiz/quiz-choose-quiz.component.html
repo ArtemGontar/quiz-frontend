@@ -11,16 +11,20 @@
                 </div>
             </div>
             <div class="choose-quiz-content-table">
-                <div class="choose-quiz-content-table-row" [routerLink]="['/quizzes', quiz.id ,'questions']" [queryParams]="{ quizName: quiz.name }" *ngFor="let quiz of quizzes | async">
-                    <div class="choose-quiz-content-table-wrapper">
+                <div class="choose-quiz-content-table-row" *ngFor="let quiz of quizzes | async">
+                    <div class="choose-quiz-content-table-wrapper" [routerLink]="[quiz.id ,'questions']" [queryParams]="{ quizName: quiz.name }">
                         <div class="choose-quiz-content-table-row-item">
-                            {{quiz.name}}
+                            {{quiz.title}}
                         </div>
                         <div class="choose-quiz-content-table-row-item">
                             {{quiz.priority}}
                         </div>
                     </div>
+                    <div class="choose-quiz-content-table-item-delete" (click)="quizStatistic(quiz.id)">
+                        <img src="../../../../../assets/img/statistic.png" width="25px" height="25px">
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>

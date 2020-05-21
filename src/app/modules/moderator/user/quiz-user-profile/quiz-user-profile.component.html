@@ -37,12 +37,19 @@
                 </div>
                 <div class="user-profile-div-input">
                     <label>System role</label>
-                    <input type="text" [(ngModel)]="userProfile.systemRole"/>
+                    <input type="text" [(ngModel)]="role"/>
                 </div>
             </div>
-            
-            <div class="user-profile-div-button">
-                <button (click)="saveUser()">Save changes</button>
+            <div class="user-profile-div-buttons">
+                <div class="user-profile-div-button">
+                    <button (click)="returnBackClick()" >Return back</button>
+                </div>
+                <div class="user-profile-div-button">
+                    <button (click)="disableUser()">Disable user</button>
+                </div>
+                <div class="user-profile-div-button">
+                    <button (click)="saveUser()">Save changes</button>
+                </div>
             </div>
         </div>
     </div>

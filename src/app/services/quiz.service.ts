@@ -27,7 +27,7 @@ export class QuizService {
   }
 
   deleteChapter(chapterId) {
-    this.http.delete(this.URL + 'api/chapters', chapterId);
+    this.http.delete(this.URL + `api/chapters/${chapterId}`).subscribe(x => console.log(x));
   }
 
   

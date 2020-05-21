@@ -11,8 +11,8 @@ import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-pro
 const routes: Routes = [
     { path: 'chapters', component: QuizChooseChapterComponent},
     { path: 'chapters/:chapterId/quizzes', component: QuizChooseQuizComponent},
-    { path: 'add-chapter', component: QuizAddChapterComponent},
-    { path: 'chapters/:chapterId/add-quiz', component: QuizAddQuizComponent},
+    { path: 'chapters/add-chapter', component: QuizAddChapterComponent},
+    { path: 'chapters/:chapterId/quizzes/add-quiz', component: QuizAddQuizComponent},
     { path: 'users', component: QuizUserListComponent}, //canActivate: [AuthGuard]
     { path: 'users/:userId', component: QuizUserProfileComponent},
     ];

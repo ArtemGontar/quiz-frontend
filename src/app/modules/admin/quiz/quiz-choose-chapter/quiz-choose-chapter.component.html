@@ -11,8 +11,8 @@
                 </div>
             </div>
             <div class="choose-chapter-content-table">
-                <div class="choose-chapter-content-table-row" [routerLink]="[chapter.id, 'quizzes']" routerLinkActive="router-link-active"  *ngFor="let chapter of chapters | async">
-                    <div class="choose-chapter-content-table-wrapper">
+                <div class="choose-chapter-content-table-row" *ngFor="let chapter of chapters | async">
+                    <div class="choose-chapter-content-table-wrapper" [routerLink]="[chapter.id, 'quizzes']" routerLinkActive="router-link-active">
                         <div class="choose-chapter-content-table-row-item">
                             {{chapter.name}}
                         </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="choose-chapter-div-button">
-                <button [routerLink]="['/add-chapter']" routerLinkActive="router-link-active">Add chapter</button>
+                <button [routerLink]="['add-chapter']" routerLinkActive="router-link-active">Add chapter</button>
             </div>
         </div>
     </div>

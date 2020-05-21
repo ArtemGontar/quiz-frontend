@@ -13,8 +13,8 @@ const routes: Routes = [
     { path: 'chapters', component: QuizChooseChapterComponent},
     { path: 'chapters/:chapterId/quizzes', component: QuizChooseQuizComponent},
     { path: 'quizzes/:quizId/questions', component: QuizQuestionComponent},
-    { path: 'add-chapter', component: QuizAddChapterComponent},
-    { path: 'chapters/:chapterId/add-quiz', component: QuizAddQuizComponent},
+    { path: 'chapters/add-chapter', component: QuizAddChapterComponent},
+    { path: 'chapters/:chapterId/quizzes/add-quiz', component: QuizAddQuizComponent},
     { path: 'users', component: QuizUserListComponent}, //canActivate: [AuthGuard]
     { path: 'users/:userId', component: QuizUserProfileComponent},
 

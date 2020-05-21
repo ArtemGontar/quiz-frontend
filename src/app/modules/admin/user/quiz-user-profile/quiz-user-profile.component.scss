@@ -40,22 +40,29 @@
                     
                 }
             } 
-            .user-profile-div-button {
-                margin: 10px;
+            .user-profile-div-buttons {
+                width: 100%;
                 display: flex;
-                align-self: flex-end;
-                & button {
-                    background: #FEC600;
-                    height: 40px;
-                    padding: 10px;
-                    border-radius: 5px;
-                    border: 0;
-                    &:hover {
-                        cursor: pointer;
+                justify-content: flex-end;
+                .user-profile-div-button{
+                    display: flex;
+                    margin-right: 20px;
+                    & button {
+                        background: #FEC600;
+                        height: 40px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 0;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                        &:active {
+                            background: #FEC200;
+                        }
                     }
-                    &:active {
-                        background: #FEC200;
-                    }
+                }
+                .user-profile-div-button.last{
+                    margin: 0;
                 }
             }
         }

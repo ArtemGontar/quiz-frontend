@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../../../services/quiz.service'
-import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../../services/auth.service';
+import { StatisticService } from '../../../../services/statistic.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-
 @Component({
   selector: 'app-quiz-choose-quiz',
   templateUrl: './quiz-choose-quiz.component.html',
@@ -12,8 +12,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class QuizChooseQuizComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
+    private router: Router,
     private authService: AuthService,
-    private quizService:QuizService) { }
+    private quizService:QuizService,
+    private statisticService: StatisticService) { }
   quizzes: Observable<any>;
   chapterId: string;
   ngOnInit() {
@@ -24,9 +26,12 @@ export class QuizChooseQuizComponent implements OnInit {
     this.authService.loadPermissions([this.authService.role]);
   }
 
-  deleteQuiz(quizId){
-    console.log("quiz deleted" + quizId);
-    //this.quizService.deleteQuiz(quizId);
+  quizStatistic(quizId){
+    this.router.navigate([
+      quizId,
+      'quiz-statistic'
+    ], { relativeTo: this.route });
+    this.statisticService.getQuizStatistic(quizId);
   }
 
 }

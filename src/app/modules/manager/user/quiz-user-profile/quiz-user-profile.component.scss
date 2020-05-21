@@ -1,62 +1,46 @@
-.choose-quiz-container {
+.user-profile-container {
     display: flex;
     justify-content: center;
-    .choose-quiz-wrapper {
+    .user-profile-wrapper {
         display: flex;
         flex-direction: column;
         margin-top: 20px;
         width: 80%;
-        .choose-quiz-title {
+        .user-profile-title {
             display: flex;
             padding: 20px;
             font-weight: bold;
         }
-        .choose-quiz-content {
+        .user-profile-content {
+            height: 500px; //remove?
             display: flex;
             border: 1px solid #C7BCBC;
             flex-direction: column;
             justify-content: space-between;
             padding: 20px;
             
-            .choose-quiz-content-title {
-                width: 90%;
+            .user-profile-content-inputs {
+                font-style: italic;
                 margin: 10px;
+                height: 400px;
                 display: flex;
                 flex-direction: row;
+                flex-wrap: wrap;
+                align-content: space-between;
                 justify-content: space-between;
-                font-weight: bold;
-                padding: 0 20px;
-            } 
-            .choose-quiz-content-table {
-                margin: 10px;
-                display: flex;
-                flex-direction: column;
-                .choose-quiz-content-table-row{
+                .user-profile-div-input {
+                    width: 30%;
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    
-                    .choose-quiz-content-table-wrapper {
-                        width: 90%;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: space-between;
+                    flex-direction: column;
+                    & input{
+                        border-radius: 5px;
+                        height: 30px;
                         border: 1px solid black;
-                        padding: 20px;
-                        &:hover {
-                            cursor: pointer;
-                            color: #FEC600;
-                        }    
                     }
+                    
                 }
-                
-                .choose-quiz-content-table-item-delete {
-                    cursor: pointer;
-                }
-                
-            }
-            .choose-quiz-div-button {
+            } 
+            .user-profile-div-button {
                 margin: 10px;
                 display: flex;
                 align-self: flex-end;

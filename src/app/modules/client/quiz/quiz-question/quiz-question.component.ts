@@ -18,6 +18,7 @@ export class QuizQuestionComponent implements OnInit {
   };
   constructor(private route: ActivatedRoute,
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private quizService:QuizService) { 
     
   }
@@ -60,6 +61,10 @@ export class QuizQuestionComponent implements OnInit {
   {
     this.quizResult.answers.push((<HTMLInputElement>document.querySelector('input[type=radio]:checked')).value);
     this.quizService.postQuizResults(this.quizId, this.quizResult);
-    this.router.navigate(['/congrats']);
+    this.router.navigate([
+      'dashboard',
+      'client',
+      'congrats'
+    ], { replaceUrl: true });
   }
 }

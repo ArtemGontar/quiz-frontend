@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { QuizService } from '../../../../services/quiz.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-quiz-add-quiz',
   templateUrl: './quiz-add-quiz.component.html',
@@ -17,7 +17,9 @@ export class QuizAddQuizComponent implements OnInit {
   });
   constructor(private route: ActivatedRoute,
     private quizService: QuizService, 
-    private fb: FormBuilder) { 
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { 
       this.route.params.subscribe(x => {
         this.quizForm.patchValue({chapterId: x.chapterId});
       });
@@ -55,6 +57,9 @@ export class QuizAddQuizComponent implements OnInit {
     this.getOptionsFor(questionIndex).push(this.getOptions());
   }
 
+  returnBackClick(){
+    this.router.navigate(['..'], { relativeTo: this.activatedRoute });
+  }
 
   onSubmit() {
     this.quizService.addQuiz(this.quizForm.value);

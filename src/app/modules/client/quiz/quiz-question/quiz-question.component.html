@@ -3,7 +3,7 @@
         <div class="quiz-question-title">Quiz: {{quizName}}</div>
         <div class="quiz-question-content">
             <div *ngIf="questions" class="quiz-question">
-                <div class="quiz-question-text">{{questions[currentQuestionNumber].text}}</div>
+                <div class="quiz-question-text">{{questions[currentQuestionNumber].title}}</div>
                 <form class="form">
                     <div class="quiz-question-options">
                         <div class="quiz-question-option" *ngFor="let option of questions[currentQuestionNumber].options; index as i">

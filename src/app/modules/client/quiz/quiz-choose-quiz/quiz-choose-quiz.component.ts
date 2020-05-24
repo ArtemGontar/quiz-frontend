@@ -4,6 +4,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { StatisticService } from '../../../../services/statistic.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Priority } from '../../../../models/englishLevel';
 @Component({
   selector: 'app-quiz-choose-quiz',
   templateUrl: './quiz-choose-quiz.component.html',
@@ -17,6 +18,7 @@ export class QuizChooseQuizComponent implements OnInit {
     private quizService:QuizService,
     private statisticService: StatisticService) { }
   quizzes: Observable<any>;
+  priorities = Priority;
   chapterId: string;
   ngOnInit() {
     this.route.params.subscribe(x => 

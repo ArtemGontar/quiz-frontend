@@ -10,6 +10,7 @@ import { QuizAddChapterComponent } from './quiz/quiz-add-chapter/quiz-add-chapte
 import { AdminRoutingModule } from './admin.routing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

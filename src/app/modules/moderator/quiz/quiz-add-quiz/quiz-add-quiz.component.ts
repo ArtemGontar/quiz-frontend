@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { QuizService } from '../../../../services/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { enumSelector } from 'src/app/utils/enum.functions';
+import { Priority } from 'src/app/models/englishLevel';
+
 @Component({
   selector: 'app-quiz-add-quiz',
   templateUrl: './quiz-add-quiz.component.html',
@@ -15,6 +18,8 @@ export class QuizAddQuizComponent implements OnInit {
     chapterId: [this.chapterId],
     questions: this.fb.array([this.getQuestions()])
   });
+  priorities = Priority;
+  keys;
   constructor(private route: ActivatedRoute,
     private quizService: QuizService, 
     private fb: FormBuilder,
@@ -23,6 +28,8 @@ export class QuizAddQuizComponent implements OnInit {
       this.route.params.subscribe(x => {
         this.quizForm.patchValue({chapterId: x.chapterId});
       });
+      
+      this.keys = enumSelector(this.priorities);
     }
 
   ngOnInit() {

@@ -105,8 +105,6 @@
                             }
                         }
                     }
-                    
-                    
                 }
             } 
 
@@ -127,6 +125,11 @@
                         background: #FEC200;
                     }
                 }
+            }
+            mat-select {
+                border-radius: 5px;
+                        height: 30px;
+                        border: 1px solid black;
             }
             & input{
                 border-radius: 5px;

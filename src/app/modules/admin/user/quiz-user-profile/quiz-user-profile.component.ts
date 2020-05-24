@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EnglishLevel } from '../../../../models/englishLevel';
+import { SystemRoles } from '../../../../models/systemRoles';
 
+import { enumSelector } from 'src/app/utils/enum.functions';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-quiz-user-profile',
   templateUrl: './quiz-user-profile.component.html',
@@ -11,8 +15,13 @@ export class QuizUserProfileComponent implements OnInit {
   role;
   userProfile;
   userId: string;
+  englishLevels = EnglishLevel;
+  roles = SystemRoles;
+  englishLevelKeys;
+  roleKeys;
   constructor(private route: ActivatedRoute,
-    private userService:UserService,
+    private authService: AuthService,
+    private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 
@@ -25,7 +34,9 @@ export class QuizUserProfileComponent implements OnInit {
       this.userProfile = x;
     });
 
-    this.role = "";
+    this.englishLevelKeys = enumSelector(this.englishLevels);
+    this.roleKeys = enumSelector(this.roles);
+    this.role = SystemRoles[this.authService.role];
   }
 
   returnBackClick(){
@@ -34,8 +45,6 @@ export class QuizUserProfileComponent implements OnInit {
 
   saveUser(){
     this.userProfile.systemRole = this.role;
-    console.log(this.role);
-    console.log(this.userProfile);
     this.userService.putUserById(this.userId, this.userProfile);
   }
 

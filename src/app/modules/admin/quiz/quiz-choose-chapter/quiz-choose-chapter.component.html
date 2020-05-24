@@ -17,7 +17,7 @@
                             {{chapter.name}}
                         </div>
                         <div class="choose-chapter-content-table-row-item">
-                            {{chapter.level}}
+                            {{englishLevels[chapter.englishLevel]}}
                         </div>
                     </div>
                     <div class="choose-chapter-content-table-item-delete" (click)="deleteChapter(chapter.id)">

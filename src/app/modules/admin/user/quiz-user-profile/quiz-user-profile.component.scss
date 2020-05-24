@@ -32,12 +32,16 @@
                     width: 30%;
                     display: flex;
                     flex-direction: column;
+                    mat-select {
+                        border-radius: 5px;
+                                height: 30px;
+                                border: 1px solid black;
+                    }
                     & input{
                         border-radius: 5px;
                         height: 30px;
                         border: 1px solid black;
                     }
-                    
                 }
             } 
             .user-profile-div-buttons {

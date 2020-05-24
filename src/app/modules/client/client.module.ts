@@ -10,6 +10,7 @@ import { QuizStatisticComponent } from './statistic/quiz-statistic/quiz-statisti
 import { QuizCongratsComponent } from './statistic/quiz-congrats/quiz-congrats.component';
 import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-profile.component';
 import { UserStatisticComponent } from './statistic/user-statistic/user-statistic.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserStatisticComponent } from './statistic/user-statistic/user-statisti
     CommonModule,
     ClientRoutingModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

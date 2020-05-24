@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../../../services/quiz.service'
-import { Observable } from 'rxjs' 
+import { Observable, from } from 'rxjs' 
 import { AuthService } from 'src/app/services/auth.service';
+import { EnglishLevel } from '../../../../models/englishLevel';
 
 @Component({
   selector: 'app-quiz-choose-chapter',
@@ -12,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class QuizChooseChapterComponent implements OnInit {
 
   chapters: Observable<any>;
+  englishLevels = EnglishLevel;
   constructor(private authService: AuthService, private quizService: QuizService) { }
   
   ngOnInit() {

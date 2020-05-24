@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { TokenInterceptor } from './interseptors/token.interceptor';
 import { CoreModule } from './modules/core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CoreModule } from './modules/core/core.module';
     HttpClientModule,
     ReactiveFormsModule,
     CoreModule,
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     {

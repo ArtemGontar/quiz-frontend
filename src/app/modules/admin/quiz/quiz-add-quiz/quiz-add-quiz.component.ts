@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { QuizService } from '../../../../services/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Priority } from 'src/app/models/englishLevel';
+import { enumSelector } from 'src/app/utils/enum.functions';
+
 @Component({
   selector: 'app-quiz-add-quiz',
   templateUrl: './quiz-add-quiz.component.html',
@@ -11,10 +14,12 @@ export class QuizAddQuizComponent implements OnInit {
   chapterId;
   quizForm = this.fb.group({
     title: ['', Validators.required],
-    priority: [''],
+    priority: [0],
     chapterId: [this.chapterId],
     questions: this.fb.array([this.getQuestions()])
   });
+  priorities = Priority;
+  keys;
   constructor(private route: ActivatedRoute,
     private quizService: QuizService, 
     private fb: FormBuilder,
@@ -23,6 +28,7 @@ export class QuizAddQuizComponent implements OnInit {
       this.route.params.subscribe(x => {
         this.quizForm.patchValue({chapterId: x.chapterId});
       });
+      this.keys = enumSelector(this.priorities);
     }
 
   ngOnInit() {
@@ -34,6 +40,10 @@ export class QuizAddQuizComponent implements OnInit {
 
   getOptionsFor(index) {
     return ( <FormArray> ( <FormArray> this.quizForm.get('questions')).controls[index].get('options')).controls;
+  }
+
+  getOptionsArrayFor(index) {
+    return ( <FormArray> ( <FormArray> this.quizForm.get('questions')).controls[index].get('options')) as FormArray;
   }
 
   addQuestion(): any {
@@ -54,7 +64,7 @@ export class QuizAddQuizComponent implements OnInit {
   }
 
   addOption(questionIndex): any {
-    this.getOptionsFor(questionIndex).push(this.getOptions());
+    this.getOptionsArrayFor(questionIndex).push(this.getOptions());
   }
 
   returnBackClick(){
@@ -62,7 +72,7 @@ export class QuizAddQuizComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.quizForm.value);
     this.quizService.addQuiz(this.quizForm.value);
-    console.warn(this.quizForm.value);
   }
 }

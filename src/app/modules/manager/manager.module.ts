@@ -6,6 +6,7 @@ import { ManagerRoutingModule } from './manager.routing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-profile.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-pro
     CommonModule,
     ManagerRoutingModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

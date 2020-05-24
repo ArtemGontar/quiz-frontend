@@ -3,6 +3,7 @@ import { QuizService } from '../../../../services/quiz.service'
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { Priority } from '../../../../models/englishLevel';
 
 @Component({
   selector: 'app-quiz-choose-quiz',
@@ -15,6 +16,7 @@ export class QuizChooseQuizComponent implements OnInit {
     private authService: AuthService,
     private quizService:QuizService) { }
   quizzes: Observable<any>;
+  priorities = Priority;
   chapterId: string;
   ngOnInit() {
     this.route.params.subscribe(x => 
@@ -25,8 +27,7 @@ export class QuizChooseQuizComponent implements OnInit {
   }
 
   deleteQuiz(quizId){
-    console.log("quiz deleted" + quizId);
-    //this.quizService.deleteQuiz(quizId);
+    this.quizService.deleteQuiz(quizId);
   }
 
 }

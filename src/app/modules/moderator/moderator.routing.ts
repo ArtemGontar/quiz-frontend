@@ -2,7 +2,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { QuizChooseChapterComponent } from './quiz/quiz-choose-chapter/quiz-choose-chapter.component';
 import { QuizChooseQuizComponent } from './quiz/quiz-choose-quiz/quiz-choose-quiz.component';
-import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.component';
 import { QuizAddChapterComponent } from './quiz/quiz-add-chapter/quiz-add-chapter.component';
 import { QuizAddQuizComponent } from './quiz/quiz-add-quiz/quiz-add-quiz.component';
 import { QuizUserListComponent } from './user/quiz-user-list/quiz-user-list.component';
@@ -12,7 +11,6 @@ const routes: Routes = [
     
     { path: 'chapters', component: QuizChooseChapterComponent},
     { path: 'chapters/:chapterId/quizzes', component: QuizChooseQuizComponent},
-    { path: 'quizzes/:quizId/questions', component: QuizQuestionComponent},
     { path: 'chapters/add-chapter', component: QuizAddChapterComponent},
     { path: 'chapters/:chapterId/quizzes/add-quiz', component: QuizAddQuizComponent},
     { path: 'users', component: QuizUserListComponent}, //canActivate: [AuthGuard]

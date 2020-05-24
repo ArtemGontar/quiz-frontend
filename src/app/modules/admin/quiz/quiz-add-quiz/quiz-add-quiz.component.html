@@ -10,7 +10,11 @@
                     </div>
                     <div class="add-quiz-div-input">
                         <label>Quiz Level</label>
-                        <input type="number" formControlName="priority"/>
+                        <mat-select formControlName="priority">
+                            <mat-option *ngFor="let key of keys" [value]="key">
+                              {{priorities[key]}}
+                            </mat-option>
+                        </mat-select>
                     </div>
                 </div>
                 

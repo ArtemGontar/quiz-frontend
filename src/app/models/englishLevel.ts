@@ -1,14 +1,15 @@
 export enum EnglishLevel{
-    None = "",
-    Beginner = "Beginner",
-    Elementary = "Elementary",
-    PreIntermediate = "PreIntermediate",
-    Intermediate = "Intermediate",
-    UpperIntermediate = "UpperIntermediate"
+    None = 0,
+    Beginner = 1,
+    Elementary = 2,
+    PreIntermediate = 3,
+    Intermediate = 4,
+    UpperIntermediate = 5
 }
 
 export enum Priority{
-    Low = "Low",
-    Medium = "Medium",
-    High = "High"
+    None = 0,
+    Low = 1,
+    Medium = 2,
+    High = 3
 }

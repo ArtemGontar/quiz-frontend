@@ -9,7 +9,11 @@
                 </div>
                 <div class="add-chapter-div-input">
                     <label>Chapter Level</label>
-                    <input type="text" formControlName="level"/>
+                    <mat-select formControlName="englishLevel">
+                        <mat-option *ngFor="let key of keys" [value]="key">
+                          {{englishLevels[key]}}
+                        </mat-option>
+                    </mat-select>
                 </div>
                 <div class="add-chapter-div-buttons">
                     <div class="add-chapter-div-button">

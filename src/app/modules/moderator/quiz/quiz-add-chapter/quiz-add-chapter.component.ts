@@ -3,6 +3,9 @@ import { QuizService } from '../../../../services/quiz.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { enumSelector } from 'src/app/utils/enum.functions';
+import { EnglishLevel } from 'src/app/models/englishLevel';
+
 @Component({
   selector: 'app-quiz-add-chapter',
   templateUrl: './quiz-add-chapter.component.html',
@@ -11,14 +14,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class QuizAddChapterComponent implements OnInit {
   chapterForm = this.fb.group({
       name: [''],
-      level: ['']
+      englishLevel: ['']
   });
-  
-  constructor(private fb:FormBuilder, 
-    private authService: AuthService, 
+  englishLevels = EnglishLevel;
+  keys;
+  constructor(private fb:FormBuilder,
     private quizService: QuizService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {  
+      this.keys = enumSelector(this.englishLevels);
+    }
   
 
   ngOnInit() {
@@ -29,7 +34,6 @@ export class QuizAddChapterComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     this.quizService.addChapter(this.chapterForm.value);
   }
 }

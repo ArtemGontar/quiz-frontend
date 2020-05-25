@@ -59,6 +59,7 @@ export class QuizQuestionComponent implements OnInit {
 
   postResults()
   {
+    console.log((<HTMLInputElement>document.querySelector('input[type=radio]:checked')).value);
     this.quizResult.answers.push((<HTMLInputElement>document.querySelector('input[type=radio]:checked')).value);
     this.quizService.postQuizResults(this.quizId, this.quizResult);
     this.router.navigate([

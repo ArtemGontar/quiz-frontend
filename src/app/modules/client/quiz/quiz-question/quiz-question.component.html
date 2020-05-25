@@ -7,7 +7,7 @@
                 <form class="form">
                     <div class="quiz-question-options">
                         <div class="quiz-question-option" *ngFor="let option of questions[currentQuestionNumber].options; index as i">
-                            <input id="option{{i}}" name="radio" type="radio" value="{{option}}"/>
+                            <input id="option{{i}}" name="radio" type="radio" value="{{option.value}}"/>
                             <label for="option{{i}}">{{option.value}}</label>
                         </div>
                     </div>

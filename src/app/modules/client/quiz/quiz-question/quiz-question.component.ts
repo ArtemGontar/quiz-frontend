@@ -65,7 +65,8 @@ export class QuizQuestionComponent implements OnInit {
     this.router.navigate([
       'dashboard',
       'client',
-      'congrats'
+      'congrats',
+      this.quizId
     ], { replaceUrl: true });
   }
 }

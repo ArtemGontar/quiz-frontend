@@ -12,7 +12,12 @@ export class StatisticService {
 
   }
 
-  getQuizStatistic(guizId){
-    
+  getQuizStatistic(quizId){
+    return this.http.get(this.URL + `api/statistics/quizzes/${quizId}`);
   }
+
+  getUserStatistic(userId){
+    return this.http.get(this.URL + `api/statistics/users/${userId}`);
+  }
+
 }

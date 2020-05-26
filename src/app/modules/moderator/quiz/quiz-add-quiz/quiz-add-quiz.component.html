@@ -26,6 +26,10 @@
                                 <label>Question</label>
                                 <input type="text" formControlName="title">
                             </div>
+                            <div class="add-quiz-div-input">
+                                <label>Correct answer</label>
+                                <input type="text" formControlName="correctAnswer">
+                            </div>
                             <div class="input-option-group-item-wrapper" formArrayName="options">
                                 <div class="input-option-group-item" *ngFor="let option of getOptionsFor(questionIndex); let optionIndex=index">
                                     <div class="add-quiz-div-input" [formGroupName]="optionIndex">

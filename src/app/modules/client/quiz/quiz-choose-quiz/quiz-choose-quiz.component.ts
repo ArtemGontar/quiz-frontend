@@ -11,16 +11,17 @@ import { Priority } from '../../../../models/englishLevel';
   styleUrls: ['./quiz-choose-quiz.component.scss']
 })
 export class QuizChooseQuizComponent implements OnInit {
+  quizzes: Observable<any>;
+  priorities = Priority;
+  chapterId: string;
   
   constructor(private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
     private quizService:QuizService,
     private statisticService: StatisticService) { }
-  quizzes: Observable<any>;
-  priorities = Priority;
-  chapterId: string;
-  ngOnInit() {
+  
+    ngOnInit() {
     this.route.params.subscribe(x => 
       this.chapterId = x.chapterId);
     

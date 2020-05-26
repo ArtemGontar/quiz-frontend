@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: 'users/:userId', component: QuizUserProfileComponent},//canActivate: [AuthGuard]
     { path: 'user-statistics', component: QuizStatisticComponent},
     { path: 'chapters/:chapterId/quizzes/:quizId/quiz-statistic', component: QuizStatisticComponent},
-    { path: 'congrats', component: QuizCongratsComponent},
+    { path: 'congrats/:quizId', component: QuizCongratsComponent},
 ];
     
     @NgModule({

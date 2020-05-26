@@ -60,6 +60,7 @@ export class AuthService {
   }
 
   get id(): string {
+    console.log(this.user.profile)
     return this.user != null ? this.user.profile.userId : '';
   }
 

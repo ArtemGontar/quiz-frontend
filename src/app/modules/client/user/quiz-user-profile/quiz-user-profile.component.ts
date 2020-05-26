@@ -4,7 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { enumSelector } from 'src/app/utils/enum.functions';
 import { SystemRoles } from 'src/app/models/systemRoles';
 import { AuthService } from 'src/app/services/auth.service';
-import { EnglishLevel } from '../../../../models/englishLevel'
+import { EnglishLevel } from '../../../../models/englishLevel';
+
 @Component({
   selector: 'app-quiz-user-profile',
   templateUrl: './quiz-user-profile.component.html',

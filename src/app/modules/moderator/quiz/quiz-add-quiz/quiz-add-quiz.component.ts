@@ -51,6 +51,7 @@ export class QuizAddQuizComponent implements OnInit {
     return this.fb.group({
       title: [''],
       options: this.fb.array([this.getOptions()]),
+      correctAnswer: ['']
     });
   }
 

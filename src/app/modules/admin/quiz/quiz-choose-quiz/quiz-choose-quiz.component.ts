@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { Priority } from '../../../../models/englishLevel';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-quiz-choose-quiz',
@@ -14,7 +15,8 @@ export class QuizChooseQuizComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
     private authService: AuthService,
-    private quizService:QuizService) { }
+    private quizService:QuizService,
+    private toastr: ToastrService) { }
   quizzes: Observable<any>;
   priorities = Priority;
   chapterId: string;
@@ -28,6 +30,8 @@ export class QuizChooseQuizComponent implements OnInit {
 
   deleteQuiz(quizId){
     this.quizService.deleteQuiz(quizId);
+    this.toastr.success('Quiz deleted');
   }
+
 
 }

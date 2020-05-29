@@ -4,6 +4,7 @@ import { QuizService } from '../../../../services/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Priority } from 'src/app/models/englishLevel';
 import { enumSelector } from 'src/app/utils/enum.functions';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-quiz-add-quiz',
@@ -24,7 +25,8 @@ export class QuizAddQuizComponent implements OnInit {
     private quizService: QuizService, 
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { 
+    private router: Router,
+    private toastr: ToastrService) { 
       this.route.params.subscribe(x => {
         this.quizForm.patchValue({chapterId: x.chapterId});
       });
@@ -75,5 +77,6 @@ export class QuizAddQuizComponent implements OnInit {
   onSubmit() {
     console.log(this.quizForm.value);
     this.quizService.addQuiz(this.quizForm.value);
+    this.toastr.success('Quiz created');
   }
 }

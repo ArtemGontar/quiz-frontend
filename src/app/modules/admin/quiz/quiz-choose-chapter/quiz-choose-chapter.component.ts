@@ -3,6 +3,7 @@ import { QuizService } from '../../../../services/quiz.service'
 import { Observable, from } from 'rxjs' 
 import { AuthService } from 'src/app/services/auth.service';
 import { EnglishLevel } from '../../../../models/englishLevel';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-quiz-choose-chapter',
@@ -14,7 +15,9 @@ export class QuizChooseChapterComponent implements OnInit {
 
   chapters: Observable<any>;
   englishLevels = EnglishLevel;
-  constructor(private authService: AuthService, private quizService: QuizService) { }
+  constructor(private authService: AuthService, 
+    private quizService: QuizService,
+    private toastr: ToastrService) { }
   
   ngOnInit() {
     this.chapters = this.quizService.getChapters();
@@ -23,5 +26,6 @@ export class QuizChooseChapterComponent implements OnInit {
 
   deleteChapter(chapterId){
     this.quizService.deleteChapter(chapterId);
+    this.toastr.success('Chapter deleted');
   }
 }

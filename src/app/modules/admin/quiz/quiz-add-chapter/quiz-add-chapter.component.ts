@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { enumSelector } from 'src/app/utils/enum.functions';
 import { EnglishLevel } from 'src/app/models/englishLevel';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-quiz-add-chapter',
@@ -21,7 +22,8 @@ export class QuizAddChapterComponent implements OnInit {
   constructor(private fb:FormBuilder, 
     private quizService: QuizService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private toastr: ToastrService) {
       this.keys = enumSelector(this.englishLevels);
     }
   
@@ -34,5 +36,6 @@ export class QuizAddChapterComponent implements OnInit {
 
   onSubmit() {
     this.quizService.addChapter(this.chapterForm.value);
+    this.toastr.success('Chapter created');
   }
 }

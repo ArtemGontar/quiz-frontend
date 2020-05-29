@@ -11,7 +11,7 @@ import { AdminRoutingModule } from './admin.routing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { MatSelectModule } from '@angular/material/select';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     QuizChooseChapterComponent,
@@ -28,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    ToastrModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 
        configurationIsolate: true,

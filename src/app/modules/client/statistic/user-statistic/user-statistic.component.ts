@@ -15,6 +15,9 @@ import { EnglishLevel } from '../../../../models/englishLevel';
 })
 export class UserStatisticComponent implements OnInit {
 
+  lastScoresChartData;
+  lastScoresChartLabels;
+  quizResultsChartData;
   userIdSubscription: Subscription;
   userStatistic = {};
   englishLevels = EnglishLevel;
@@ -32,6 +35,11 @@ export class UserStatisticComponent implements OnInit {
       this.statisticService.getUserStatistic(id)
       .subscribe(statistic => {
         this.userStatistic = statistic;
+        this.lastScoresChartData = statistic["lastScoresChartView"].quizScores.map(x => x.score);
+        this.lastScoresChartLabels = statistic["lastScoresChartView"].quizScores.map(x => x.title);
+        this.quizResultsChartData = [
+          statistic["quizResultChartView"].correctAnswers,
+          statistic["quizResultChartView"].faliedAnswers]
         this.spinner.hide();
       },
         err => {

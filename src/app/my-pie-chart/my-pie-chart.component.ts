@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label, SingleDataSet, Color } from 'ng2-charts';
 
@@ -12,21 +12,11 @@ export class MyPieChartComponent implements OnInit {
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
+
   public pieChartLabels: Label[] = ['Passed question', 'Failed question'];
-  public pieChartData: SingleDataSet = [20, 10];
-  public datasets: any[] = [
-    {
-      data: this.pieChartData,
-      backgroundColor: [
-        "#33cc33",
-        "#ff3300"
-      ],
-      hoverBackgroundColor: [
-        "#009900",
-        "#cc0000"
-      ],
-      borderColor: 'black',
-    }];
+  @Input()
+  public pieChartData: SingleDataSet;
+  public datasets: any[];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -34,6 +24,19 @@ export class MyPieChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.datasets = [
+      {
+        data: this.pieChartData,
+        backgroundColor: [
+          "#33cc33",
+          "#ff3300"
+        ],
+        hoverBackgroundColor: [
+          "#009900",
+          "#cc0000"
+        ],
+        borderColor: 'black',
+      }];
   }
 
 }

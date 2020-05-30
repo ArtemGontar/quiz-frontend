@@ -10,7 +10,7 @@
                         Pie chart
                     </div>
                     <div class="congrates-content-chart-value">
-                        <app-my-bar-chart></app-my-bar-chart>
+                        <app-my-pie-chart *ngIf="userResultsChartData" [pieChartData]="userResultsChartData"></app-my-pie-chart>
                     </div>
                 </div>
                 <div class="congrates-content-item-group">
@@ -19,7 +19,7 @@
                             Average score by quiz
                         </div>
                         <div class="congrates-content-item-value">
-                            {{userStatistic.scoreForQuizzes}}
+                            {{userStatistic.scoreForQuiz}}
                         </div>
                     </div>
                     <div class="congrates-content-item">
@@ -27,7 +27,7 @@
                             English level
                         </div>
                         <div class="congrates-content-item-value">
-                            {{userStatistic.englishLevel}}
+                            {{englishLevels[userStatistic.englishLevel]}}
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         Pie chart
                     </div>
                     <div class="congrates-content-chart-value">
-                        <app-my-bar-chart></app-my-bar-chart>
+                        <app-my-bar-chart *ngIf="quizLastScoresChartData" [barChartData]="quizLastScoresChartData" [barChartLabels]="quizLastScoresChartLabels"></app-my-bar-chart>
                     </div>
                 </div>
             </div>

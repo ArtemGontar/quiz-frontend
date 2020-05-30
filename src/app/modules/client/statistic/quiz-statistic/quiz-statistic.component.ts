@@ -16,8 +16,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class QuizStatisticComponent implements OnInit {
   userId;
   quizStatistic;
+  quizResultsChartData;
   englishLevels = EnglishLevel;
-
+  data = [95, 89, 70, 61, 56, 55, 40];
+  labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  
   constructor(private route: ActivatedRoute,
     private statisticService: StatisticService,
     private toastr: ToastrService,
@@ -30,6 +33,10 @@ export class QuizStatisticComponent implements OnInit {
       .subscribe(statistic => {
         console.log(statistic);
         this.quizStatistic = statistic;
+        this.quizResultsChartData = [
+          statistic["quizResultChartView"].correctAnswers,
+          statistic["quizResultChartView"].faliedAnswers]
+        
         this.spinner.hide();
       },
         err => this.toastr.error(err));

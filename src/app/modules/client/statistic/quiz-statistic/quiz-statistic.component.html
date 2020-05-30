@@ -35,7 +35,7 @@
                         Pie chart
                     </div>
                     <div class="statistic-content-chart-value">
-                        <app-my-bar-chart></app-my-bar-chart>
+                        <app-my-bar-chart [barChartData]="data" [barChartLabels]="labels"></app-my-bar-chart>
                     </div>
                 </div>
                 <div class="statistic-content-item statistic-content-item-chart">
@@ -43,7 +43,7 @@
                         Chart
                     </div>
                     <div class="statistic-content-chart-value">
-                        <app-my-pie-chart></app-my-pie-chart>
+                        <app-my-pie-chart *ngIf="quizResultsChartData" [pieChartData]="quizResultsChartData"></app-my-pie-chart>
                     </div>
                 </div>
             </div>

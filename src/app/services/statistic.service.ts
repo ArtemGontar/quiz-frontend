@@ -20,4 +20,8 @@ export class StatisticService {
     return this.http.get(this.URL + `api/statistics/users/${userId}`);
   }
 
+  getUserStatisticByQuiz(userId, quizId){
+    return this.http.get(this.URL + `api/statistics/users/${userId}/quizzes/${quizId}`);
+  }
+
 }

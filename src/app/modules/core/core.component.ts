@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { filter, pluck, switchMap } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-core',
@@ -22,7 +23,8 @@ export class CoreComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.role = [this.authService.role];

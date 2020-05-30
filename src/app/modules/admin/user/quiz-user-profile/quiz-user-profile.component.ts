@@ -5,6 +5,8 @@ import { EnglishLevel } from '../../../../models/englishLevel';
 import { SystemRoles } from '../../../../models/systemRoles';
 import { enumSelector } from 'src/app/utils/enum.functions';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-quiz-user-profile',
@@ -23,16 +25,22 @@ export class QuizUserProfileComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private toastr:ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
+
     this.route.params.subscribe(x => {
       this.userId = x.userId;
     });
     
     this.userService.getUserById(this.userId).subscribe(x => {
-      this.userProfile = x;
-    });
+      this.spinner.hide();
+      this.userProfile = x;},
+      err => this.toastr.error("Get user data failed")
+    );
 
     this.englishLevelKeys = enumSelector(this.englishLevels);
     this.roleKeys = enumSelector(this.roles);

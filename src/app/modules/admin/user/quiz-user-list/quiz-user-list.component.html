@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="user-list-content-table">
-                <div class="user-list-content-table-row" [routerLink]="[user.id]" routerLinkActive="router-link-active"  *ngFor="let user of users | async">
+                <div class="user-list-content-table-row" [routerLink]="[user.id]" routerLinkActive="router-link-active"  *ngFor="let user of users">
                     <div class="user-list-content-title-row-item">
                         {{user.firstName}}  {{user.lastName}}
                     </div>

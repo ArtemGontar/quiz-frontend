@@ -5,13 +5,14 @@ import { StatisticService } from '../../../../services/statistic.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Priority } from '../../../../models/englishLevel';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-quiz-choose-quiz',
   templateUrl: './quiz-choose-quiz.component.html',
   styleUrls: ['./quiz-choose-quiz.component.scss']
 })
 export class QuizChooseQuizComponent implements OnInit {
-  quizzes: Observable<any>;
+  quizzes: any;
   priorities = Priority;
   chapterId: string;
   
@@ -19,13 +20,17 @@ export class QuizChooseQuizComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private quizService:QuizService,
-    private statisticService: StatisticService) { }
+    private statisticService: StatisticService,
+    private toastr: ToastrService) { }
   
     ngOnInit() {
     this.route.params.subscribe(x => 
       this.chapterId = x.chapterId);
     
-    this.quizzes = this.quizService.getQuizzesByChapterId(this.chapterId);
+    this.quizService.getQuizzesByChapterId(this.chapterId)
+    .subscribe(data => this.quizzes = data,
+      err => this.toastr.success('Get quizzes failed'));
+    ;
     this.authService.loadPermissions([this.authService.role]);
   }
 

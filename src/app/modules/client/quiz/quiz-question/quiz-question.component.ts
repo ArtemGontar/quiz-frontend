@@ -3,6 +3,7 @@ import { QuizService } from '../../../../services/quiz.service';
 import { ActivatedRoute } from '@angular/router';
 import { QuizResult } from '../../../../models/quizResult';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-quiz-question',
   templateUrl: './quiz-question.component.html',
@@ -19,7 +20,8 @@ export class QuizQuestionComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private quizService:QuizService) { 
+    private quizService:QuizService,
+    private toastr: ToastrService) { 
     
   }
 
@@ -49,7 +51,7 @@ export class QuizQuestionComponent implements OnInit {
   nextQuestion() {
     if((document.querySelectorAll('input[type=radio]:checked').length == 0))
     {
-      console.log("Please answer");
+      this.toastr.warning('Please, answer the question');
     }
     else {
       this.quizResult.answers.push((<HTMLInputElement>document.querySelector('input[type=radio]:checked')).value);
@@ -59,7 +61,11 @@ export class QuizQuestionComponent implements OnInit {
 
   postResults()
   {
-    console.log((<HTMLInputElement>document.querySelector('input[type=radio]:checked')).value);
+    if((document.querySelectorAll('input[type=radio]:checked').length == 0))
+    {
+      this.toastr.warning('Please, answer the question');
+      return;
+    }
     this.quizResult.answers.push((<HTMLInputElement>document.querySelector('input[type=radio]:checked')).value);
     this.quizService.postQuizResults(this.quizId, this.quizResult);
     this.router.navigate([

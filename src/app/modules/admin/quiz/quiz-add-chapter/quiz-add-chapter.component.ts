@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../../../services/quiz.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { enumSelector } from 'src/app/utils/enum.functions';
@@ -14,9 +14,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class QuizAddChapterComponent implements OnInit {
   chapterForm = this.fb.group({
-      name: [''],
-      englishLevel: [0]
-  });
+    name: ['', Validators.required],
+    englishLevel: [0, Validators.required]
+  });;
   englishLevels = EnglishLevel;
   keys;
   constructor(private fb:FormBuilder, 

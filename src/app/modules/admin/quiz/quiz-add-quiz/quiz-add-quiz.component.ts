@@ -15,7 +15,7 @@ export class QuizAddQuizComponent implements OnInit {
   chapterId;
   quizForm = this.fb.group({
     title: ['', Validators.required],
-    priority: [0],
+    priority: [0, Validators.required],
     chapterId: [this.chapterId],
     questions: this.fb.array([this.getQuestions()])
   });
@@ -54,9 +54,9 @@ export class QuizAddQuizComponent implements OnInit {
 
   getQuestions(): any {
     return this.fb.group({
-      title: [''],
+      title: ['', Validators.required],
       options: this.fb.array([this.getOptions()]),
-      correctAnswer: ['']
+      correctAnswer: ['', Validators.required]
     });
   }
 

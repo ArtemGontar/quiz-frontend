@@ -17,14 +17,16 @@ export class QuizChooseQuizComponent implements OnInit {
     private authService: AuthService,
     private quizService:QuizService,
     private toastr: ToastrService) { }
-  quizzes: Observable<any>;
+  quizzes: any;
   priorities = Priority;
   chapterId: string;
   ngOnInit() {
     this.route.params.subscribe(x => 
       this.chapterId = x.chapterId);
     
-    this.quizzes = this.quizService.getQuizzesByChapterId(this.chapterId);
+    this.quizService.getQuizzesByChapterId(this.chapterId)
+    .subscribe(data => this.quizzes = data,
+      err => this.toastr.success('Get quizzes failed'));
     this.authService.loadPermissions([this.authService.role]);
   }
 

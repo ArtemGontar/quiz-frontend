@@ -5,7 +5,8 @@
             <form class="add-chapter-content-inputs" [formGroup]="chapterForm" (ngSubmit)="onSubmit()">
                 <div class="add-chapter-div-input">
                     <label>Chapter Name</label>
-                    <input type="text" formControlName="name"/>
+                    <input type="text" formControlName="name" id="name"/>
+                    <div class="error-message" *ngIf="chapterForm.get('name').touched && chapterForm.get('name').hasError('required')">Required</div>
                 </div>
                 <div class="add-chapter-div-input">
                     <label>Chapter Level</label>

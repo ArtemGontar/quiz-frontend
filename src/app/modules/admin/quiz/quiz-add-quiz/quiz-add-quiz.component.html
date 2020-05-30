@@ -7,6 +7,7 @@
                     <div class="add-quiz-div-input">
                         <label>Quiz Name</label>
                         <input type="text" formControlName="title"/>
+                        <div class="error-message" *ngIf="quizForm.get('title').touched && quizForm.get('title').hasError('required')">Required</div>
                     </div>
                     <div class="add-quiz-div-input">
                         <label>Quiz Level</label>
@@ -25,10 +26,12 @@
                             <div class="add-quiz-div-input">
                                 <label>Question</label>
                                 <input type="text" formControlName="title">
+                                <!-- <div class="error-message" *ngIf="quizForm.get('questions').get('title').touched && quizForm.get('questions').get('title').hasError('required')">Required</div> -->
                             </div>
                             <div class="add-quiz-div-input">
                                 <label>Correct answer</label>
                                 <input type="text" formControlName="correctAnswer">
+                                <!-- <div class="error-message" *ngIf="quizForm.get('questions[questionIndex].correctAnswer').touched && quizForm.get('questions[questionIndex].correctAnswer').hasError('required')">Required</div> -->
                             </div>
                             <div class="input-option-group-item-wrapper" formArrayName="options">
                                 <div class="input-option-group-item" *ngFor="let option of getOptionsFor(questionIndex); let optionIndex=index">

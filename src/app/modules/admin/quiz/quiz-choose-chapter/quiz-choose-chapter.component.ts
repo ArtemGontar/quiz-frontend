@@ -13,14 +13,16 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class QuizChooseChapterComponent implements OnInit {
 
-  chapters: Observable<any>;
+  chapters: any;
   englishLevels = EnglishLevel;
   constructor(private authService: AuthService, 
     private quizService: QuizService,
     private toastr: ToastrService) { }
   
   ngOnInit() {
-    this.chapters = this.quizService.getChapters();
+    this.quizService.getChapters()
+    .subscribe(data => this.chapters = data,
+      err => this.toastr.success('Get chapters failed'));
     this.authService.loadPermissions([this.authService.role]);
   }
 

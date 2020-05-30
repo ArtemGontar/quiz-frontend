@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { StatisticService } from 'src/app/services/statistic.service';
 import { Subscription } from 'rxjs';
 import { EnglishLevel } from '../../../../models/englishLevel';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-quiz-statistic',
@@ -13,21 +15,24 @@ import { EnglishLevel } from '../../../../models/englishLevel';
 })
 export class QuizStatisticComponent implements OnInit {
   userId;
-  userStatistic;
-  userIdSubscription: Subscription;
+  quizStatistic;
   englishLevels = EnglishLevel;
 
   constructor(private route: ActivatedRoute,
-    private authService: AuthService,
-    private statisticService: StatisticService) { }
+    private statisticService: StatisticService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.userIdSubscription = this.authService.authNavId$
-    .subscribe(id => {
-      this.statisticService.getUserStatistic(id)
+    this.spinner.show();
+    this.route.params.subscribe(x => {
+      this.statisticService.getQuizStatistic(x.quizId)
       .subscribe(statistic => {
-        this.userStatistic = statistic
-      });
+        console.log(statistic);
+        this.quizStatistic = statistic;
+        this.spinner.hide();
+      },
+        err => this.toastr.error(err));
     });
   }
 

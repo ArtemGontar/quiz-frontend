@@ -16,7 +16,7 @@
                         Average score by quiz
                     </div>
                     <div class="statistic-content-item-value">
-                        {{userStatistic.averageScoreByQuizPercent}}
+                        {{userStatistic.scoreForQuizzes}}
                     </div>
                 </div>
                 <div class="statistic-content-item">
@@ -24,7 +24,7 @@
                         English level
                     </div>
                     <div class="statistic-content-item-value">
-                        {{userStatistic.englishLevel}}
+                        {{englishLevels[userStatistic.englishLevel]}}
                     </div>
                 </div>
             </div>
@@ -33,16 +33,16 @@
                     <div class="statistic-content-chart-name">
                         Pie chart
                     </div>
-                    <div class="statistic-content-chart-value pie-chart">
-                        
+                    <div class="statistic-content-chart-value">
+                        <app-my-bar-chart></app-my-bar-chart>
                     </div>
                 </div>
                 <div class="statistic-content-item statistic-content-item-chart">
                     <div class="statistic-content-chart-name">
                         Chart
                     </div>
-                    <div class="statistic-content-chart-value chart">
-                        
+                    <div class="statistic-content-chart-value">
+                        <app-my-pie-chart></app-my-pie-chart>
                     </div>
                 </div>
             </div>

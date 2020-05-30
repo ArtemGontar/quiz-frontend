@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserStatisticComponent } from './user-statistic.component';
+import { MyLineChartComponent } from './my-line-chart.component';
 
-describe('UserStatisticComponent', () => {
-  let component: UserStatisticComponent;
-  let fixture: ComponentFixture<UserStatisticComponent>;
+describe('MyLineChartComponent', () => {
+  let component: MyLineChartComponent;
+  let fixture: ComponentFixture<MyLineChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserStatisticComponent ]
+      declarations: [ MyLineChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserStatisticComponent);
+    fixture = TestBed.createComponent(MyLineChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

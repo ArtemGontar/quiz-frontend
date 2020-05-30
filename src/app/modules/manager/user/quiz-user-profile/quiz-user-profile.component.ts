@@ -13,7 +13,7 @@ import { EnglishLevel } from '../../../../models/englishLevel'
 })
 export class QuizUserProfileComponent implements OnInit {
   role;
-  userProfile;
+  userProfile = {};
   userId: string;
   englishLevels = EnglishLevel;
   roles = SystemRoles;
@@ -44,7 +44,7 @@ export class QuizUserProfileComponent implements OnInit {
   }
 
   saveUser(){
-    this.userProfile.systemRole = this.role;
+    this.userProfile["systemRole"] = this.role;
     this.userService.putUserById(this.userId, this.userProfile);
   }
 

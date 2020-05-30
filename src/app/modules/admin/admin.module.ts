@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-profile.component';
-import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.component';
 import { QuizChooseQuizComponent } from './quiz/quiz-choose-quiz/quiz-choose-quiz.component';
 import { QuizChooseChapterComponent } from './quiz/quiz-choose-chapter/quiz-choose-chapter.component';
 import { QuizUserListComponent } from './user/quiz-user-list/quiz-user-list.component';
@@ -16,7 +15,6 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     QuizChooseChapterComponent,
     QuizChooseQuizComponent,
-    QuizQuestionComponent,
     QuizAddQuizComponent,
     QuizAddChapterComponent,
     QuizUserProfileComponent,

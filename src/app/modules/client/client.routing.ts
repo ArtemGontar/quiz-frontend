@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-profile.component';
 import { QuizCongratsComponent } from './statistic/quiz-congrats/quiz-congrats.component';
 import { QuizStatisticComponent } from './statistic/quiz-statistic/quiz-statistic.component';
+import { UserStatisticComponent } from './statistic/user-statistic/user-statistic.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'client'},
@@ -13,7 +14,7 @@ const routes: Routes = [
     { path: 'chapters/:chapterId/quizzes', component: QuizChooseQuizComponent},
     { path: 'chapters/:chapterId/quizzes/:quizId/questions', component: QuizQuestionComponent},
     { path: 'users/:userId', component: QuizUserProfileComponent},//canActivate: [AuthGuard]
-    { path: 'user-statistics', component: QuizStatisticComponent},
+    { path: 'user-statistics', component: UserStatisticComponent},
     { path: 'chapters/:chapterId/quizzes/:quizId/quiz-statistic', component: QuizStatisticComponent},
     { path: 'congrats/:quizId', component: QuizCongratsComponent},
 ];

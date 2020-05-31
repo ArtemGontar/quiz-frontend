@@ -12,10 +12,10 @@ import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-pro
 import { UserStatisticComponent } from './statistic/user-statistic/user-statistic.component';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { MyLineChartComponent } from 'src/app/my-line-chart/my-line-chart.component';
-import { ChartsModule } from 'ng2-charts';
-import { MyPieChartComponent } from 'src/app/my-pie-chart/my-pie-chart.component';
-import { MyBarChartComponent } from 'src/app/my-bar-chart/my-bar-chart.component';
+import { MyBarChartComponent } from 'src/app/modules/my-chart/my-bar-chart/my-bar-chart.component';
+import { MyPieChartComponent } from 'src/app/modules/my-chart/my-pie-chart/my-pie-chart.component';
+import { CoreModule } from '../core/core.module';
+import { MyChartModule } from '../my-chart/my-chart.module';
 
 @NgModule({
   declarations: [
@@ -25,16 +25,13 @@ import { MyBarChartComponent } from 'src/app/my-bar-chart/my-bar-chart.component
     QuizUserProfileComponent,
     QuizStatisticComponent,
     UserStatisticComponent,
-    QuizCongratsComponent,
-    MyLineChartComponent,
-    MyPieChartComponent,
-    MyBarChartComponent
+    QuizCongratsComponent
   ],
   imports: [
     CommonModule,
     ClientRoutingModule,
     FormsModule,
-    ChartsModule,
+    MyChartModule,
     NgxSpinnerModule,
     MatSelectModule,
     ReactiveFormsModule,

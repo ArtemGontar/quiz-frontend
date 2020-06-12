@@ -17,8 +17,9 @@ export class UserStatisticComponent implements OnInit {
   userIdSubscription: Subscription;
   userStatistic = {};
   englishLevels = EnglishLevel;
-  data = [95, 89, 70, 61, 56, 55, 40];
-  labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  lastScoresChartData;
+  lastScoresChartLabels;
+  quizResultsChartData;
   
   constructor(private route: ActivatedRoute,
     private authService: AuthService,
@@ -34,6 +35,12 @@ export class UserStatisticComponent implements OnInit {
       this.statisticService.getUserStatistic(id)
       .subscribe(statistic => {
         this.userStatistic = statistic;
+        console.log(statistic);
+        this.lastScoresChartData = statistic["lastScoresChartView"].quizScores.map(x => x.score);
+        this.lastScoresChartLabels = statistic["lastScoresChartView"].quizScores.map(x => x.title);
+        this.quizResultsChartData = [
+          statistic["quizResultChartView"].correctAnswers,
+          statistic["quizResultChartView"].faliedAnswers]
         this.spinner.hide();
       },
         err => this.toastr.error(err));

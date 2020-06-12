@@ -78,5 +78,6 @@ export class QuizAddQuizComponent implements OnInit {
     console.log(this.quizForm.value);
     this.quizService.addQuiz(this.quizForm.value);
     this.toastr.success('Quiz created');
+    this.router.navigate(['..'], { relativeTo: this.activatedRoute });
   }
 }

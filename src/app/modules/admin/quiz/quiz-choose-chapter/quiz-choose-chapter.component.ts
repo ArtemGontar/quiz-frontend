@@ -27,6 +27,10 @@ export class QuizChooseChapterComponent implements OnInit {
   }
 
   deleteChapter(chapterId){
+    var index = this.chapters.map(x => {
+      return x.Id;
+    }).indexOf(chapterId);
+    this.chapters.splice(index, 1);
     this.quizService.deleteChapter(chapterId);
     this.toastr.success('Chapter deleted');
   }

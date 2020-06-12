@@ -31,9 +31,12 @@ export class QuizChooseQuizComponent implements OnInit {
   }
 
   deleteQuiz(quizId){
+    var index = this.quizzes.map(x => {
+      return x.Id;
+    }).indexOf(quizId);
+    
+    this.quizzes.splice(index, 1);
     this.quizService.deleteQuiz(quizId);
     this.toastr.success('Quiz deleted');
   }
-
-
 }

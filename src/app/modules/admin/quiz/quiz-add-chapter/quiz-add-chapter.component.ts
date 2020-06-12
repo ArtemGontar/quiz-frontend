@@ -37,5 +37,6 @@ export class QuizAddChapterComponent implements OnInit {
   onSubmit() {
     this.quizService.addChapter(this.chapterForm.value);
     this.toastr.success('Chapter created');
+    this.router.navigate(['..'], { relativeTo: this.activatedRoute });
   }
 }

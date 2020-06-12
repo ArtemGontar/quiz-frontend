@@ -1,3 +1,12 @@
+.align-right{
+    display: flex;
+    padding: 21px 0;
+    justify-content: flex-end;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
 .choose-quiz-container {
     display: flex;
     justify-content: center;
@@ -18,60 +27,40 @@
             justify-content: space-between;
             padding: 20px;
             
-            .choose-quiz-content-title {
+            .choose-quiz-content-table-wrapper {
                 width: 90%;
-                margin: 10px;
                 display: flex;
                 flex-direction: row;
+                align-items: center;
                 justify-content: space-between;
-                font-weight: bold;
-                padding: 0 20px;
-            } 
-            .choose-quiz-content-table {
-                margin: 10px;
-                display: flex;
-                flex-direction: column;
-                .choose-quiz-content-table-row{
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    &:hover {
-                        cursor: pointer;
-                        color: #FEC600;
-                    }
-                    .choose-quiz-content-table-wrapper {
-                        width: 90%;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: space-between;
-                        border: 1px solid black;
-                        padding: 20px;
-                        
-                    }
-                }
-                
-                .choose-quiz-content-table-item-delete {
+                border: 1px solid black;
+                padding: 20px;
+                &:hover {
+                    cursor: pointer;
+                    color: #FEC600;
+                }    
+            }
+        
+            .choose-quiz-content-table-item-delete {
+                cursor: pointer;
+            }
+            
+        }
+        .choose-quiz-div-button {
+            margin: 10px;
+            display: flex;
+            align-self: flex-end;
+            & button {
+                background: #FEC600;
+                height: 40px;
+                padding: 10px;
+                border-radius: 5px;
+                border: 0;
+                &:hover {
                     cursor: pointer;
                 }
-                
-            }
-            .choose-quiz-div-button {
-                margin: 10px;
-                display: flex;
-                align-self: flex-end;
-                & button {
-                    background: #FEC600;
-                    height: 40px;
-                    padding: 10px;
-                    border-radius: 5px;
-                    border: 0;
-                    &:hover {
-                        cursor: pointer;
-                    }
-                    &:active {
-                        background: #FEC200;
-                    }
+                &:active {
+                    background: #FEC200;
                 }
             }
         }

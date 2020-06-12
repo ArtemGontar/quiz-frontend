@@ -2,36 +2,37 @@
     <div class="user-list-wrapper">
         <div class="user-list-title">User List</div>
         <div class="user-list-content">
-            <div class="user-list-content-title">
-                <div class="user-list-content-title-row">
-                    Name
-                </div>
-                <div class="user-list-content-title-row">
-                    E-mail
-                </div>
-                <div class="user-list-content-title-row">
-                    Phone Number
-                </div>
-                <div class="user-list-content-title-row">
-                    English Level
-                </div>
-            </div>
-            <div class="user-list-content-table">
-                <div class="user-list-content-table-row" [routerLink]="[user.id]" routerLinkActive="router-link-active"  *ngFor="let user of users | async">
-                    <div class="user-list-content-title-row-item">
-                        {{user.firstName}}  {{user.lastName}}
-                    </div>
-                    <div class="user-list-content-title-row-item">
-                        {{user.email}}
-                    </div>
-                    <div class="user-list-content-title-row-item">
-                        {{user.phoneNumber}}
-                    </div>
-                    <div class="user-list-content-title-row-item">
-                        {{englishLevels[user.englishLevel]}}
-                    </div>
-                </div>
-            </div>
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+            </mat-form-field>
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.firstName}}  {{element.lastName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="phoneNumber">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+                </ng-container>
+
+                
+                <ng-container matColumnDef="englishLevel">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> English level </th>
+                    <td mat-cell *matCellDef="let element"> {{englishLevels[element.englishLevel]}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[row.id]" routerLinkActive="router-link-active" ></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
         </div>
     </div>
 </div>

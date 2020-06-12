@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuizService } from '../../../../services/quiz.service'
 import { Observable, from } from 'rxjs' 
 import { AuthService } from 'src/app/services/auth.service';
 import { EnglishLevel } from '../../../../models/englishLevel';
 import { ToastrService } from 'ngx-toastr';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-quiz-choose-chapter',
@@ -13,7 +16,16 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class QuizChooseChapterComponent implements OnInit {
 
+  displayedColumns: string[] = 
+  ['name', 
+  'englishLevel', 
+  'actions'];
+
+  dataSource :MatTableDataSource<any>;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   chapters: any;
+
   englishLevels = EnglishLevel;
   constructor(private authService: AuthService, 
     private quizService: QuizService,
@@ -21,7 +33,12 @@ export class QuizChooseChapterComponent implements OnInit {
   
   ngOnInit() {
     this.quizService.getChapters()
-    .subscribe(data => this.chapters = data,
+    .subscribe(data => {
+      this.chapters = data
+      this.dataSource = new MatTableDataSource<any>(this.chapters) 
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    },
       err => this.toastr.success('Get chapters failed'));
     this.authService.loadPermissions([this.authService.role]);
   }
@@ -33,5 +50,10 @@ export class QuizChooseChapterComponent implements OnInit {
     this.chapters.splice(index, 1);
     this.quizService.deleteChapter(chapterId);
     this.toastr.success('Chapter deleted');
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

@@ -10,7 +10,13 @@ import { AdminRoutingModule } from './admin.routing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { MatSelectModule } from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     QuizChooseChapterComponent,
@@ -25,6 +31,11 @@ import { ToastrModule } from 'ngx-toastr';
     AdminRoutingModule,
     FormsModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     ToastrModule,
     NgxPermissionsModule.forChild({

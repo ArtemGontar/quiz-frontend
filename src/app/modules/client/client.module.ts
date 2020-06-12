@@ -12,9 +12,11 @@ import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-pro
 import { UserStatisticComponent } from './statistic/user-statistic/user-statistic.component';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { MyBarChartComponent } from 'src/app/modules/my-chart/my-bar-chart/my-bar-chart.component';
-import { MyPieChartComponent } from 'src/app/modules/my-chart/my-pie-chart/my-pie-chart.component';
-import { CoreModule } from '../core/core.module';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import { MyChartModule } from '../my-chart/my-chart.module';
 
 @NgModule({
@@ -34,6 +36,11 @@ import { MyChartModule } from '../my-chart/my-chart.module';
     MyChartModule,
     NgxSpinnerModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

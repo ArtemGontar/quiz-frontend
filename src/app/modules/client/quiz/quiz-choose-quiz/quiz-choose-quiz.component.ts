@@ -38,6 +38,10 @@ export class QuizChooseQuizComponent implements OnInit {
     this.route.params.subscribe(x => 
       this.chapterId = x.chapterId);
     
+    this.route.queryParams.subscribe(x => {
+      this.chapterName = x.chapterName;
+    });
+
     this.quizService.getQuizzesByChapterId(this.chapterId)
     .subscribe(data => {
       this.quizzes = data;
@@ -47,10 +51,6 @@ export class QuizChooseQuizComponent implements OnInit {
     },
       err => this.toastr.success('Get quizzes failed'));
     this.authService.loadPermissions([this.authService.role]);
-  
-    this.route.queryParams.subscribe(x => {
-      this.chapterName = x.chapterName;
-    });
   }
 
   deleteQuiz(quizId){

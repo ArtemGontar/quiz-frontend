@@ -16,6 +16,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
+import { QuizEditChapterComponent } from './quiz/quiz-edit-chapter/quiz-edit-chapter.component';
+import { QuizEditQuizComponent } from './quiz/quiz-edit-quiz/quiz-edit-quiz.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ToastrModule } from 'ngx-toastr';
     QuizAddQuizComponent,
     QuizAddChapterComponent,
     QuizUserProfileComponent,
-    QuizUserListComponent
+    QuizUserListComponent,
+    QuizEditChapterComponent,
+    QuizEditQuizComponent
   ],
   imports: [
     CommonModule,

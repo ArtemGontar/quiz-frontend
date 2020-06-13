@@ -32,7 +32,6 @@ export class QuizUserListComponent implements OnInit {
     this.userService.getUsers()
     .subscribe(data => {
       this.users = data;
-      console.log(data);
       this.dataSource = new MatTableDataSource<any>(this.users) 
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

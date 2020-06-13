@@ -1,0 +1,76 @@
+.edit-chapter-container {
+    display: flex;
+    justify-content: center;
+    .edit-chapter-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        width: 80%;
+        .edit-chapter-title {
+            display: flex;
+            padding: 20px;
+            font-weight: bold;
+        }
+        .edit-chapter-content {
+            display: flex;
+            border: 1px solid #C7BCBC;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px; 
+
+            .edit-chapter-content-inputs {
+                font-style: italic;
+                margin: 10px;
+                height: 150px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: space-between;
+                justify-content: space-between;
+                .edit-chapter-div-buttons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    .edit-chapter-div-button{
+                        display: flex;
+                        margin-right: 20px;
+                        & button {
+                            background: #FEC600;
+                            height: 40px;
+                            padding: 10px;
+                            border-radius: 5px;
+                            border: 0;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                            &:active {
+                                background: #FEC200;
+                            }
+                        }
+                    }
+                    .edit-chapter-div-button.last{
+                        margin: 0;
+                    }
+                }
+                .edit-chapter-div-input {
+                    width: 45%;
+                    display: flex;
+                    flex-direction: column;
+                    mat-select {
+                        border-radius: 5px;
+                                height: 30px;
+                                border: 1px solid black;
+                    }
+                    & input{
+                        border-radius: 5px;
+                        height: 30px;
+                        border: 1px solid black;
+                    }
+                    
+                }
+            }
+
+            
+        }
+    }
+}

@@ -1,15 +1,15 @@
-<div class="add-quiz-container">
-    <div class="add-quiz-wrapper">
-        <div class="add-quiz-title">Add the quiz</div>
-        <div class="add-quiz-content">
-            <form class="add-quiz-content-inputs" [formGroup]="quizForm" (ngSubmit)="onSubmit()">
-                <div class="add-quiz-content-inputs-quiz-group">
-                    <div class="add-quiz-div-input">
+<div class="edit-quiz-container">
+    <div class="edit-quiz-wrapper">
+        <div class="edit-quiz-title">Add the quiz</div>
+        <div class="edit-quiz-content">
+            <form class="edit-quiz-content-inputs" [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+                <div class="edit-quiz-content-inputs-quiz-group">
+                    <div class="edit-quiz-div-input">
                         <label>Quiz Name</label>
                         <input type="text" formControlName="title"/>
                         <div class="error-message" *ngIf="quizForm.get('title').touched && quizForm.get('title').hasError('required')">Required</div>
                     </div>
-                    <div class="add-quiz-div-input">
+                    <div class="edit-quiz-div-input">
                         <label>Quiz Level</label>
                         <mat-select formControlName="priority">
                             <mat-option *ngFor="let key of keys" [value]="key">
@@ -19,40 +19,40 @@
                     </div>
                 </div>
                 
-                <div class="add-quiz-div-input-question-group" formArrayName="questions">
+                <div class="edit-quiz-div-input-question-group" formArrayName="questions">
                     <h3>Questions</h3> 
                     <div class="input-question-group-item" *ngFor="let question of questions.controls; let questionIndex=index">
                         <div class="input-question-group-item-wrapper" [formGroupName]="questionIndex">
-                            <div class="add-quiz-action" (click)="deleteQuestion(questionIndex)">
+                            <div class="edit-quiz-action" (click)="deleteQuestion(questionIndex)">
                                 <img src="../../../assets/img/close.svg" width="25px" height="25px">
                             </div>
-                            <div class="add-quiz-div-input">
+                            <div class="edit-quiz-div-input">
                                 <label>Question</label>
                                 <input type="text" formControlName="title">
                                 <!-- <div class="error-message" *ngIf="quizForm.get('questions').get('title').touched && quizForm.get('questions').get('title').hasError('required')">Required</div> -->
                             </div>
-                            <div class="add-quiz-div-input">
+                            <div class="edit-quiz-div-input">
                                 <label>Correct answer</label>
                                 <input type="text" formControlName="correctAnswer">
                                 <!-- <div class="error-message" *ngIf="quizForm.get('questions[questionIndex].correctAnswer').touched && quizForm.get('questions[questionIndex].correctAnswer').hasError('required')">Required</div> -->
                             </div>
                             <div class="input-option-group-item-wrapper" formArrayName="options">
                                 <div class="input-option-group-item" *ngFor="let option of getOptionsFor(questionIndex); let optionIndex=index">
-                                    <div class="add-quiz-div-input" [formGroupName]="optionIndex">
+                                    <div class="edit-quiz-div-input" [formGroupName]="optionIndex">
                                         <label>Option</label>
                                         <input type="text" formControlName="value"/>
                                     </div>
-                                    <div class="add-quiz-action" (click)="deleteOption(questionIndex, optionIndex)">
+                                    <div class="edit-quiz-action" (click)="deleteOption(questionIndex, optionIndex)">
                                         <img src="../../../assets/img/close.svg" width="15px" height="15px">
                                     </div>
                                 </div>
                             </div>
-                            <div class="add-quiz-div-button">
+                            <div class="edit-quiz-div-button">
                                 <button type="button" (click)="addOption(questionIndex)">Add option</button>
                             </div>
                         </div>
                     </div>
-                    <div class="add-quiz-div-button">
+                    <div class="edit-quiz-div-button">
                         <button type="button" (click)="addQuestion()">Add question</button>
                     </div>
                     

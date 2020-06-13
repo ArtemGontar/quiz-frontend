@@ -1,6 +1,6 @@
 <div class="choose-quiz-container">
     <div class="choose-quiz-wrapper">
-        <div class="choose-quiz-title">Choose the quizzes:</div>
+        <div class="choose-quiz-title">Choose the quizzes: {{chapterName}}</div>
         <div class="choose-quiz-content">
             <mat-form-field>
                 <mat-label>Filter</mat-label>
@@ -26,8 +26,9 @@
                         </div> 
                     </td>
                   </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns" [routerLink]="[row.id, 'questions']" [queryParams]="{ quizName: row.title }" routerLinkActive="router-link-active"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[row.id, 'questions']" [queryParams]="{ quizName: row.title }" routerLinkActive="router-link-active"></tr>
             </table>
             <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
             <div class="choose-quiz-div-button">

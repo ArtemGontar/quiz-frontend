@@ -4,6 +4,7 @@ import { environment } from '../models/environment';
 import { Quiz } from '../models/quiz';
 import { Question } from '../models/question';
 import { Observable, of } from 'rxjs';
+import { Chapter } from '../models/chapter';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,12 +19,20 @@ export class QuizService {
     return this.http.get(this.URL + 'api/chapters');
   }
 
+  getChapterById(chapterId) {
+    return this.http.get(this.URL + `api/chapters/${chapterId}`);
+  }
+
   getChaptersByOwner() {
     return this.http.get(this.URL + 'api/chapters/byOwner');
   }
 
   addChapter(chapter) {
     this.http.post(this.URL + 'api/chapters', chapter).subscribe(x => x);
+  }
+
+  updateChapter(chapterId, chapter) {
+    this.http.put(this.URL + `api/chapters/${chapterId}`, chapter).subscribe(x => x);
   }
 
   deleteChapter(chapterId) {
@@ -34,9 +43,17 @@ export class QuizService {
   getQuizzes() {
     return this.http.get(this.URL + 'api/quizzes');
   }
+  
+  getQuizById(quizId) {
+    return this.http.get(this.URL + `api/quizzes/${quizId}`);
+  }
 
   addQuiz(quiz) {
     this.http.post(this.URL + 'api/quizzes', quiz).subscribe(x => x);
+  }
+
+  updateQuiz(quizId, quiz) {
+    this.http.put(this.URL + `api/quizzes/${quizId}`, quiz).subscribe(x => x);
   }
 
   deleteQuiz(quizId) {

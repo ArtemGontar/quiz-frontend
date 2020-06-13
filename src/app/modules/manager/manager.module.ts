@@ -8,10 +8,13 @@ import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-pro
 import { MatSelectModule } from '@angular/material/select';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { UserStatisticComponent } from './statistic/user-statistic/user-statistic.component';
-import { MyBarChartComponent } from 'src/app/modules/my-chart/my-bar-chart/my-bar-chart.component';
-import { MyPieChartComponent } from 'src/app/modules/my-chart/my-pie-chart/my-pie-chart.component';
 import { CoreModule } from '../core/core.module';
 import { MyChartModule } from '../my-chart/my-chart.module';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,11 @@ import { MyChartModule } from '../my-chart/my-chart.module';
     ManagerRoutingModule,
     FormsModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
     NgxSpinnerModule,
     MyChartModule,
     ReactiveFormsModule,

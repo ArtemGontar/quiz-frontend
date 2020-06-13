@@ -7,16 +7,17 @@ import { enumSelector } from 'src/app/utils/enum.functions';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-quiz-add-quiz',
-  templateUrl: './quiz-add-quiz.component.html',
-  styleUrls: ['./quiz-add-quiz.component.scss']
+  selector: 'app-quiz-edit-quiz',
+  templateUrl: './quiz-edit-quiz.component.html',
+  styleUrls: ['./quiz-edit-quiz.component.scss']
 })
-export class QuizAddQuizComponent implements OnInit {
+export class QuizEditQuizComponent implements OnInit {
   chapterId;
+  quizId;
   quizForm = this.fb.group({
     title: ['', Validators.required],
     priority: [0, Validators.required],
-    chapterId: [this.chapterId],
+    chapterId: [''],
     questions: this.fb.array([this.getQuestions()])
   });
   priorities = Priority;
@@ -28,10 +29,21 @@ export class QuizAddQuizComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService) { 
       this.route.params.subscribe(x => {
-        this.quizForm.patchValue({chapterId: x.chapterId});
+        this.quizId = x.quizId;
+        this.chapterId = x.chapterId;
       });
+      this.quizService.getQuizById(this.quizId)
+      .subscribe(data => {
+        console.log(data);
+        this.quizForm = this.fb.group({
+          title: [data["title"], Validators.required],
+          priority: [data["priority"], Validators.required],
+          chapterId: [this.chapterId],
+          questions: this.fb.array([this.getQuestions()])
+        });
       this.keys = enumSelector(this.priorities);
-    }
+    });
+  }
 
   ngOnInit() {
   }
@@ -52,10 +64,6 @@ export class QuizAddQuizComponent implements OnInit {
     this.questions.push(this.getQuestions());
   }
 
-  deleteQuestion(questionIndex) {
-    this.questions.removeAt(questionIndex);
-  }
-
   getQuestions(): any {
     return this.fb.group({
       title: ['', Validators.required],
@@ -74,10 +82,6 @@ export class QuizAddQuizComponent implements OnInit {
     this.getOptionsArrayFor(questionIndex).push(this.getOptions());
   }
 
-  deleteOption(questionIndex, optionIndex) {
-    this.getOptionsArrayFor(questionIndex).removeAt(optionIndex);
-  }
-  
   returnBackClick(){
     this.router.navigate(['..'], { relativeTo: this.activatedRoute });
   }

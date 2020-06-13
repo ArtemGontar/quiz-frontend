@@ -42,12 +42,12 @@ export class QuizEditChapterComponent implements OnInit {
   }
 
   returnBackClick(){
-    this.router.navigate(['..'], { relativeTo: this.route });
+    this.router.navigate(['..', '..'], { relativeTo: this.route });
   }
 
   onSubmit() {
     this.quizService.updateChapter(this.chapterId, this.chapterForm.value);
     this.toastr.success('Chapter edited');
-    this.router.navigate(['..'], { relativeTo: this.route });
+    this.router.navigate(['..', '..'], { relativeTo: this.route });
   }
 }

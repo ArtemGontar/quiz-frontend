@@ -22,15 +22,15 @@
                 </div>
                 <div class="user-profile-div-input">
                     <label>English level</label>
-                    <mat-select [(value)]="userProfile.englishLevel">
-                        <mat-option *ngFor="let key of englishLevelKeys" [value]="key">
-                          {{englishLevels[key]}}
-                        </mat-option>
-                    </mat-select>
+                    <input type="text" [(value)]="englishLevels[userProfile.englishLevel]" readonly/>
                 </div>
                 <div class="user-profile-div-input">
                     <label>Birth Date</label>
-                    <input type="text" [(ngModel)]="userProfile.birthDate"/>
+                    <mat-form-field>
+                        <input [(ngModel)]="userProfile.birthDate" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
                 </div>
                 <div class="user-profile-div-input">
                     <label>Departament</label>
@@ -42,11 +42,7 @@
                 </div>
                 <div class="user-profile-div-input">
                     <label>System role</label>
-                    <mat-select [(value)]="role">
-                        <mat-option *ngFor="let key of roleKeys" [value]="key">
-                          {{roles[key]}}
-                        </mat-option>
-                    </mat-select>
+                    <input type="text" [(value)]="roles[role]" readonly/>
                 </div>
             </div>
             <div class="user-profile-div-buttons">

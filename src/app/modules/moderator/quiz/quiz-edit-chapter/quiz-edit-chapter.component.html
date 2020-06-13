@@ -1,0 +1,32 @@
+<div class="edit-chapter-container">
+    <div class="edit-chapter-wrapper">
+        <div class="edit-chapter-title">Edit the chapter</div>
+        <div class="edit-chapter-content">
+            <form class="edit-chapter-content-inputs" [formGroup]="chapterForm" (ngSubmit)="onSubmit()">
+                <div class="edit-chapter-div-input">
+                    <label>Chapter Name</label>
+                    <input type="text" formControlName="name" id="name"/>
+                    <div class="error-message" *ngIf="chapterForm.get('name').touched && chapterForm.get('name').hasError('required')">Required</div>
+                </div>
+                <div class="edit-chapter-div-input">
+                    <label>Chapter Level</label>
+                    <mat-select formControlName="englishLevel">
+                        <mat-option *ngFor="let key of keys" [value]="key">
+                          {{englishLevels[key]}}
+                        </mat-option>
+                    </mat-select>
+                </div>
+                <div class="edit-chapter-div-buttons">
+                    <div class="edit-chapter-div-button">
+                        <button type="button" (click)="returnBackClick()" >Return back</button>
+                    </div>
+                    <div class="edit-chapter-div-button last">
+                        <button type="submit" [disabled]="!chapterForm.valid">Save changes</button>
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+    </div>
+</div>

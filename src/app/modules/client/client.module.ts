@@ -17,6 +17,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
 import { MyChartModule } from '../my-chart/my-chart.module';
 
 @NgModule({
@@ -40,6 +42,8 @@ import { MyChartModule } from '../my-chart/my-chart.module';
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatInputModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({

@@ -18,8 +18,7 @@ export class QuizChooseChapterComponent implements OnInit {
 
   displayedColumns: string[] = 
   ['name', 
-  'englishLevel', 
-  'actions'];
+  'englishLevel'];
 
   chapters: any;
   dataSource :MatTableDataSource<any>;

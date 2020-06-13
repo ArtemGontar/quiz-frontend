@@ -18,6 +18,8 @@ import {MatInputModule} from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { QuizEditChapterComponent } from './quiz/quiz-edit-chapter/quiz-edit-chapter.component';
 import { QuizEditQuizComponent } from './quiz/quiz-edit-quiz/quiz-edit-quiz.component';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { QuizEditQuizComponent } from './quiz/quiz-edit-quiz/quiz-edit-quiz.comp
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     ToastrModule,
     NgxPermissionsModule.forChild({

@@ -18,8 +18,7 @@ export class QuizChooseQuizComponent implements OnInit {
   
   displayedColumns: string[] = 
   ['title', 
-  'priority', 
-  'actions'];
+  'priority'];
 
   dataSource :MatTableDataSource<any>;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

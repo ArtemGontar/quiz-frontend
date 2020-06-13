@@ -15,6 +15,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { QuizEditQuizComponent } from './quiz/quiz-edit-quiz/quiz-edit-quiz.component';
+import { QuizEditChapterComponent } from './quiz/quiz-edit-chapter/quiz-edit-chapter.component';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import {MatInputModule} from '@angular/material/input';
     QuizAddQuizComponent,
     QuizAddChapterComponent,
     QuizUserProfileComponent,
-    QuizUserListComponent
+    QuizUserListComponent,
+    QuizEditQuizComponent,
+    QuizEditChapterComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +41,8 @@ import {MatInputModule} from '@angular/material/input';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forChild({
        permissionsIsolate: true, 

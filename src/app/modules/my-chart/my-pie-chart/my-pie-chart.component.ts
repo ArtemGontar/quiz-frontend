@@ -28,8 +28,8 @@ export class MyPieChartComponent implements OnInit {
       {
         data: this.pieChartData,
         backgroundColor: [
-          "#33cc33",
-          "#ff3300"
+          "#5fe620",
+          "#ff496c"
         ],
         hoverBackgroundColor: [
           "#009900",

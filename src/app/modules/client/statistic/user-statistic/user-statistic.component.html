@@ -5,7 +5,7 @@
             <div class="statistic-content-row">
                 <div class="statistic-content-item">
                     <div class="statistic-content-item-name">
-                        Total passed quizzes
+                        Total unique passed quizzes
                     </div>
                     <div class="statistic-content-item-value">
                         {{userStatistic.totalPassedQuizzes}}
@@ -16,7 +16,7 @@
                         Average score by quiz
                     </div>
                     <div class="statistic-content-item-value">
-                        {{userStatistic.scoreForQuizzes}}
+                        {{userStatistic.scoreForQuizzes}}%
                     </div>
                 </div>
                 <div class="statistic-content-item">
@@ -31,7 +31,7 @@
             <div class="statistic-content-row">
                 <div class="statistic-content-item statistic-content-item-chart">
                     <div class="statistic-content-chart-name">
-                        Pie chart
+                        Employee development chart
                     </div>
                     <div class="statistic-content-chart-value">
                         <app-my-bar-chart *ngIf="lastScoresChartData" [barChartData]="lastScoresChartData" [barChartLabels]="lastScoresChartLabels"></app-my-bar-chart>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="statistic-content-item statistic-content-item-chart">
                     <div class="statistic-content-chart-name">
-                        Chart
+                        Сorrelation between true and false answers
                     </div>
                     <div class="statistic-content-chart-value">
                         <app-my-pie-chart *ngIf="quizResultsChartData" [pieChartData]="quizResultsChartData"></app-my-pie-chart>
@@ -68,7 +68,7 @@
                         Passed/failed percent
                     </div>
                     <div class="statistic-content-item-value">
-                        {{userStatistic.totalPassedQuizzes}}
+                        {{userStatistic.totalPassedQuizzes}}%
                     </div>
                 </div>
             </div>

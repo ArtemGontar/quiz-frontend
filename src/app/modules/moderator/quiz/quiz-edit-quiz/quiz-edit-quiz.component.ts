@@ -33,13 +33,22 @@ export class QuizEditQuizComponent implements OnInit {
         this.chapterId = x.chapterId;
       });
       this.quizService.getQuizById(this.quizId)
-      .subscribe(data => {
-        console.log(data);
-        this.quizForm = this.fb.group({
-          title: [data["title"], Validators.required],
-          priority: [data["priority"], Validators.required],
-          chapterId: [this.chapterId],
-          questions: this.fb.array([this.getQuestions()])
+      .subscribe(quiz => {
+        this.quizService.getQuestionsByQuizId(this.quizId).subscribe(questions => {
+          var questionsFormArray = (questions as Array<any>).map(x => this.fb.group({
+            title: [x.title, Validators.required],
+            options: this.fb.array((x.options as Array<any>).map(y => this.fb.group({
+              value: [y.value]
+            }))),
+            correctAnswer: [x.correctAnswer, Validators.required]
+          }));
+          console.log(questionsFormArray);
+          this.quizForm = this.fb.group({
+            title: [quiz["title"], Validators.required],
+            priority: [quiz["priority"], Validators.required],
+            chapterId: [this.chapterId],
+            questions: this.fb.array(questionsFormArray)
+          });
         });
       this.keys = enumSelector(this.priorities);
     });

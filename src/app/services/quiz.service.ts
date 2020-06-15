@@ -39,7 +39,6 @@ export class QuizService {
     this.http.delete(this.URL + `api/chapters/${chapterId}`).subscribe(x => x);
   }
 
-  
   getQuizzes() {
     return this.http.get(this.URL + 'api/quizzes');
   }

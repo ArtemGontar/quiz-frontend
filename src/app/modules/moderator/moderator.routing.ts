@@ -8,6 +8,7 @@ import { QuizUserListComponent } from './user/quiz-user-list/quiz-user-list.comp
 import { QuizUserProfileComponent } from './user/quiz-user-profile/quiz-user-profile.component';
 import { QuizEditChapterComponent } from './quiz/quiz-edit-chapter/quiz-edit-chapter.component';
 import { QuizEditQuizComponent } from './quiz/quiz-edit-quiz/quiz-edit-quiz.component';
+import { QuizStatisticComponent } from './statictic/quiz-statistic/quiz-statistic.component';
 
 const routes: Routes = [
     
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'chapters/edit-chapter/:chapterId', component: QuizEditChapterComponent},
     { path: 'chapters/:chapterId/quizzes/add-quiz', component: QuizAddQuizComponent},
     { path: 'chapters/:chapterId/quizzes/edit-quiz/:quizId', component: QuizEditQuizComponent},
+    { path: 'chapters/:chapterId/quizzes/:quizId/quiz-statistic', component: QuizStatisticComponent},
     { path: 'users', component: QuizUserListComponent}, //canActivate: [AuthGuard]
     { path: 'users/:userId', component: QuizUserProfileComponent},
 

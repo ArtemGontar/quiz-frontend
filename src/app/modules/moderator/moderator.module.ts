@@ -19,6 +19,7 @@ import { QuizEditQuizComponent } from './quiz/quiz-edit-quiz/quiz-edit-quiz.comp
 import { QuizEditChapterComponent } from './quiz/quiz-edit-chapter/quiz-edit-chapter.component';
 import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { QuizStatisticComponent } from './statictic/quiz-statistic/quiz-statistic.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material';
     QuizUserProfileComponent,
     QuizUserListComponent,
     QuizEditQuizComponent,
+    QuizStatisticComponent,
     QuizEditChapterComponent
   ],
   imports: [

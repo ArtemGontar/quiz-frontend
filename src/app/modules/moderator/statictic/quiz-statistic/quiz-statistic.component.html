@@ -9,23 +9,23 @@
                         Total passed quizzes
                     </div>
                     <div class="statistic-content-item-value">
-                        TBD<!-- {{quizStatistic.totalPassedQuizzes}} -->
+                        <!-- {{quizStatistic.totalPassedQuizzes}} -->
                     </div>
                 </div>
                 <div class="statistic-content-item">
                     <div class="statistic-content-item-name">
-                        Average user score by quiz
+                        Average score by quiz
                     </div>
                     <div class="statistic-content-item-value">
-                        {{quizStatistic.passedPercent}}%
+                        <!-- {{quizStatistic.scoreForQuizzes}} -->
                     </div>
                 </div>
                 <div class="statistic-content-item">
                     <div class="statistic-content-item-name">
-                        Time to solve
+                        English level
                     </div>
                     <div class="statistic-content-item-value">
-                        {{quizStatistic.timeToSolved}} minutes
+                        <!-- {{englishLevels[quizStatistic.englishLevel]}} -->
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         Pie chart
                     </div>
                     <div class="statistic-content-chart-value">
-                        <app-my-bar-chart *ngIf="lastScoresChartData" [barChartData]="lastScoresChartData" [barChartLabels]="lastScoresChartLabels"></app-my-bar-chart>
+                        <app-my-bar-chart [barChartData]="data" [barChartLabels]="labels"></app-my-bar-chart>
                     </div>
                 </div>
                 <div class="statistic-content-item statistic-content-item-chart">

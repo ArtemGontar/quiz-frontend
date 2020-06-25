@@ -31,9 +31,6 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[row.id, 'questions']" [queryParams]="{ quizName: row.title }" routerLinkActive="router-link-active"></tr>
             </table>
             <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
-            <div class="choose-quiz-div-button">
-                <button  [routerLink]="['add-quiz']" routerLinkActive="router-link-active">Add quiz</button>
-            </div>
         </div>
     </div>
 </div>
